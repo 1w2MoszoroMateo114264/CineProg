@@ -3,7 +3,7 @@ use CineProg
 go
 --Agregar posible estado de peliculas (activada,desactivada)
 --Hacer sp sobre las funciones (abm de funciones?)
---
+
 
 create table Sucursales(
 id_sucursal int,
@@ -62,7 +62,7 @@ go
 Create Table Funciones(
 nro_funcion int identity(1,1),
 dia datetime,
-hora time,
+hora varchar(100),
 id_pelicula int,
 nro_sala int, 
 constraint pk_nro_funcion PRIMARY KEY (nro_funcion),
@@ -118,6 +118,26 @@ constraint fk_DetFac_TEntrada foreign key (id_entrada) references Tipo_Entradas 
 constraint fk_detalle_butaca foreign key (id_butaca) references Butacas (id_butaca)
 )
 go
+
+create trigger t_insert_Funcion
+on funciones
+for insert
+as
+declare @min int
+set @min = (select MIN(id_butaca) from inserted i join Salas s on i.nro_sala = s.nro_sala
+                                  join Butacas b on s.nro_sala = b.nro_sala)
+declare @max int
+set @max = (select MAX(id_butaca) from inserted i join Salas s on i.nro_sala = s.nro_sala
+                                  join Butacas b on s.nro_sala = b.nro_sala)
+
+WHILE @min <=@max
+BEGIN
+    INSERT INTO butacaXfunciones(nro_funcion,id_butaca,disponible)
+    VALUES ((select nro_funcion from inserted),@min,'Disponibles');
+    SET @min = @min + 1;
+END;
+go
+
 
 -- Inserts for Sucursales table
 INSERT INTO Sucursales (id_sucursal, barrio, nombre_sucursal) VALUES (1, 'Villa Belgrano', 'Cine Belgrano');
@@ -248,8 +268,16 @@ INSERT INTO Detalle_Factura (id_detalle_factura,nro_funcion, nro_factura, id_ent
 go
 
 
-
 --SP
+create proc sp_consultar_funciones
+as
+begin
+select nro_funcion, dia, hora, titulo, s.nro_sala
+from Funciones f join Peliculas p on f.id_pelicula = p.id_pelicula
+join Salas s on f.nro_sala = s.nro_sala
+end
+
+
 create proc sp_InsertarMaestro
     @fecha datetime, 
     @id_forma_de_pago int,
@@ -291,24 +319,6 @@ begin
 end
 go
 
-create trigger t_insert_Funcion
-on funciones
-for insert
-as
-declare @min int
-set @min = (select MIN(id_butaca) from inserted i join Salas s on i.nro_sala = s.nro_sala
-                                  join Butacas b on s.nro_sala = b.nro_sala)
-declare @max int
-set @max = (select MAX(id_butaca) from inserted i join Salas s on i.nro_sala = s.nro_sala
-                                  join Butacas b on s.nro_sala = b.nro_sala)
-
-WHILE @min <=@max
-BEGIN
-    INSERT INTO butacaXfunciones(nro_funcion,id_butaca,disponible)
-    VALUES ((select nro_funcion from inserted),@min,'Disponibles');
-    SET @min = @min + 1;
-END;
-go
 
 select * from Butacas
 delete from Facturas	
