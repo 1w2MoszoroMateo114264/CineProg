@@ -23,10 +23,19 @@ namespace BackEnd.Dominio
             get { return tipoEntrada; }
             set { tipoEntrada = value; }
         }
-        public Detalle_factura(Funciones funciones, Tipo_Entrada tipoEntrada)
+        private Butacas butaca;
+
+        public Butacas Butaca
+        {
+            get { return butaca; }
+            set { butaca = value; }
+        }
+
+        public Detalle_factura(Funciones funciones, Tipo_Entrada tipoEntrada, Butacas butaca)
         {
             this.funciones = funciones;
             this.tipoEntrada = tipoEntrada;
+            this.butaca = butaca;
         }
     }
 }

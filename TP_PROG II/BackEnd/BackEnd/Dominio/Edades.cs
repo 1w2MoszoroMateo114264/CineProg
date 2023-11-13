@@ -28,7 +28,10 @@ namespace BackEnd.Dominio
 			this.id = id;
 			this.clasificacion = clasificacion;
         }
-
+        public Edades()
+        {
+            
+        }
 
     }
 }

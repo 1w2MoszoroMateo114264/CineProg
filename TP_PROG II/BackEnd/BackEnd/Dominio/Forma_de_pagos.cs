@@ -16,5 +16,8 @@ namespace BackEnd.Dominio
             FormaPago = formaPago;
         }
 
+        public Forma_de_pagos()
+        {
+        }
     }
 }
