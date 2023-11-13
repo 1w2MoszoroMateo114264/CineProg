@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1YzPbodmGPSj1RuTeG15k1NSfJAio53xWmIBqCplHNHhie9bCu5E4t6NakffFTt5cgWnvtebpT4XtYGConsI4g==",
+  "dgSpecHash": "yWXNWJ2LwC780rFQeBspUk7iN+/HFjyR1WRUmiw11BNbPiX1SNZUeQfKNCQ1org7YxhR3YmAsRZuG7H3SonRnQ==",
   "success": true,
-  "projectFilePath": "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\programacion I\\2do Cuatrimestre\\TP_PROG II\\BackEnd\\BackEnd\\BackEnd.csproj",
+  "projectFilePath": "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\TPPROG2\\CineProg\\TP_PROG II\\BackEnd\\BackEnd\\BackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mateo\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Mateo\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

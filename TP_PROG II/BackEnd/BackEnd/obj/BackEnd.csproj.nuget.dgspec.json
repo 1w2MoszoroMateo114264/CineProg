@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\programacion I\\2do Cuatrimestre\\TP_PROG II\\BackEnd\\BackEnd\\BackEnd.csproj": {}
+    "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\TPPROG2\\CineProg\\TP_PROG II\\BackEnd\\BackEnd\\BackEnd.csproj": {}
   },
   "projects": {
-    "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\programacion I\\2do Cuatrimestre\\TP_PROG II\\BackEnd\\BackEnd\\BackEnd.csproj": {
+    "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\TPPROG2\\CineProg\\TP_PROG II\\BackEnd\\BackEnd\\BackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\programacion I\\2do Cuatrimestre\\TP_PROG II\\BackEnd\\BackEnd\\BackEnd.csproj",
+        "projectUniqueName": "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\TPPROG2\\CineProg\\TP_PROG II\\BackEnd\\BackEnd\\BackEnd.csproj",
         "projectName": "BackEnd",
-        "projectPath": "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\programacion I\\2do Cuatrimestre\\TP_PROG II\\BackEnd\\BackEnd\\BackEnd.csproj",
+        "projectPath": "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\TPPROG2\\CineProg\\TP_PROG II\\BackEnd\\BackEnd\\BackEnd.csproj",
         "packagesPath": "C:\\Users\\Mateo\\.nuget\\packages\\",
-        "outputPath": "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\programacion I\\2do Cuatrimestre\\TP_PROG II\\BackEnd\\BackEnd\\obj\\",
+        "outputPath": "D:\\fACULTAD\\Tecnicatura Universitaria de Programacion\\TPPROG2\\CineProg\\TP_PROG II\\BackEnd\\BackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mateo\\AppData\\Roaming\\NuGet\\NuGet.Config",
