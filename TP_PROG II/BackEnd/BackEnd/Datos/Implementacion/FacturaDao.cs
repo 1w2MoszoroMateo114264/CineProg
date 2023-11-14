@@ -33,13 +33,13 @@ namespace BackEnd.Datos.Implementacion
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.CommandText = "sp_InsertarMaestro";
                 comando.Parameters.AddWithValue("@fecha", oFactura.Fecha);
-                comando.Parameters.AddWithValue("@id_forma_de_pago", oFactura.FormaPago.IdPago);
+                comando.Parameters.AddWithValue("@id_forma_de_pago", oFactura.IdFormaPago);
                 comando.Parameters.AddWithValue("@dni_cliente", oFactura.DniCliente);
 
                 SqlParameter parametro = new SqlParameter();
-                parametro.Direction = ParameterDirection.Output;
                 parametro.ParameterName = "@nro_Factura";
                 parametro.SqlDbType = SqlDbType.Int;
+                parametro.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(parametro);
 
                 comando.ExecuteNonQuery();
@@ -53,10 +53,10 @@ namespace BackEnd.Datos.Implementacion
                     cmdDetalle = new SqlCommand("sp_Insertardetalle", conexion,t);
                     cmdDetalle.CommandType = CommandType.StoredProcedure;
                     cmdDetalle.Parameters.AddWithValue("@nro_detalleFactura", detalleNro);
-                    cmdDetalle.Parameters.AddWithValue("@nro_funcion", df.Funciones.NroFuncion);
-                    cmdDetalle.Parameters.AddWithValue("@nroFactura", FacturaNro);
-                    cmdDetalle.Parameters.AddWithValue("@id_entrada", df.TipoEntrada.IdEntrada);
-                    cmdDetalle.Parameters.AddWithValue("@id_butaca", df.Butaca.IdButaca);
+                    cmdDetalle.Parameters.AddWithValue("@nro_funcion", df.Funciones);
+                    cmdDetalle.Parameters.AddWithValue("@nro_Factura", FacturaNro);
+                    cmdDetalle.Parameters.AddWithValue("@id_entrada", df.TipoEntrada);
+                    cmdDetalle.Parameters.AddWithValue("@id_butaca", df.Butaca);
                     cmdDetalle.ExecuteNonQuery();
                     detalleNro++;
                 }

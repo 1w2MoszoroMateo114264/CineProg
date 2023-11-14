@@ -11,7 +11,6 @@ namespace BackEnd.Dominio
         public int NroFactura { get; set; }
         public int IdFormaPago { get; set; }
         public DateTime Fecha { get; set; }
-        public Forma_de_pagos FormaPago { get; set; }
         public int DniCliente { get; set; }
         public List<Detalle_factura> Detalles { get; set; }
 

@@ -8,30 +8,30 @@ namespace BackEnd.Dominio
 {
     public class Detalle_factura
     {
-        private Funciones funciones;
+        private int funciones;
 
-        public Funciones Funciones
+        public int Funciones
         {
             get { return funciones; }
             set { funciones = value; }
         }
 
-        private Tipo_Entrada tipoEntrada;
+        private int tipoEntrada;
 
-        public Tipo_Entrada TipoEntrada
+        public int TipoEntrada
         {
             get { return tipoEntrada; }
             set { tipoEntrada = value; }
         }
-        private Butacas butaca;
+        private int butaca;
 
-        public Butacas Butaca
+        public int Butaca
         {
             get { return butaca; }
             set { butaca = value; }
         }
 
-        public Detalle_factura(Funciones funciones, Tipo_Entrada tipoEntrada, Butacas butaca)
+        public Detalle_factura(int funciones, int tipoEntrada, int butaca)
         {
             this.funciones = funciones;
             this.tipoEntrada = tipoEntrada;
