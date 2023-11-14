@@ -3,7 +3,7 @@ use CineProg
 go
 --Agregar posible estado de peliculas (activada,desactivada)
 --Hacer sp sobre las funciones (abm de funciones?)
-
+--hacer sp para el abm de peliculas
 
 create table Sucursales(
 id_sucursal int,
@@ -47,12 +47,12 @@ go
 
 Create Table Peliculas(
 id_pelicula int identity (1, 1),
-titulo varchar (100),
+titulo varchar (500),
 id_genero int,
 id_edad int,
 duracion smallint,
-descripcion varchar (100),
-estado_pelicula varchar(15),
+descripcion varchar (500),
+estado_pelicula varchar(35),
 constraint pk_pelicula primary key (id_pelicula),
 constraint fk_genero foreign key (id_genero) references Generos_pelis (id_genero),
 constraint fk_edad foreign key (id_edad) references Edades (id_edad)
@@ -74,7 +74,7 @@ go
 create table butacaXfunciones(
 nro_funcion int,
 id_butaca int,
-disponible varchar(15),
+disponible varchar(35),
 constraint pk_butacaXfunciones primary key (nro_funcion, id_butaca),
 constraint fk_butaca foreign key (id_butaca) references Butacas (id_butaca),
 constraint fk_funcion foreign key (nro_funcion) references Funciones (nro_funcion)
@@ -99,7 +99,7 @@ go
 
 create table Tipo_Entradas(
 id_entrada int identity(1,1),
-tipo_entrada varchar (20),
+tipo_entrada varchar (35),
 precio money,
 constraint pk_Tipo_entrada primary key (id_entrada)
 )
@@ -278,7 +278,7 @@ create proc sp_InsertarMaestro
 AS
 BEGIN
 	INSERT INTO Facturas (fecha,id_forma_de_pago,dni_cliente)
-    VALUES (GETDATE(), @id_forma_de_pago, @dni_cliente, @dni_cliente);
+    VALUES (GETDATE(), @id_forma_de_pago, @dni_cliente);
     --Asignamos el valor del último ID autogenerado (obtenido --  
     --mediante la función SCOPE_IDENTITY() de SQLServer)	
     SET @nro_Factura = SCOPE_IDENTITY();

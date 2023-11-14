@@ -142,7 +142,9 @@ namespace BackEnd.Datos.Implementacion
                 oFunciones.NroFuncion = nroFuncion;
                 oFunciones.Dia = dia;
                 oFunciones.Hora = hora;
+                oFunciones.Pelicula = new Peliculas();
                 oFunciones.Pelicula.Titulo = titulo;
+                oFunciones.Sala = new Salas();
                 oFunciones.Sala.NroSala = nroSala;
                 lFunciones.Add(oFunciones);
             }
@@ -181,7 +183,9 @@ namespace BackEnd.Datos.Implementacion
                 string estadoPelicula = fila["estado_pelicula"].ToString();
                 oPeliculas.IdPelicula = idPelicula;
                 oPeliculas.Titulo = titulo;
+                oPeliculas.IdGenero = new Genero_Pelis();
                 oPeliculas.IdGenero.Genero = genero;
+                oPeliculas.IdEdad = new Edades();
                 oPeliculas.IdEdad.Clasificacion = clasificacion;
                 oPeliculas.Duracion = duracion;
                 oPeliculas.Descripcion = descripcion;

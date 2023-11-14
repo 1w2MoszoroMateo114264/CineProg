@@ -61,7 +61,7 @@ namespace BackEnd.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a .
+        ///   Busca una cadena traducida similar a Data Source=MATEO-PC;Initial Catalog=CineProg;Integrated Security=True.
         /// </summary>
         internal static string CadenaConexion {
             get {

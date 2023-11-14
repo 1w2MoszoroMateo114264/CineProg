@@ -1,0 +1,14 @@
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\bin\Debug\net6.0\BackEnd.deps.json
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\bin\Debug\net6.0\BackEnd.dll
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\bin\Debug\net6.0\BackEnd.pdb
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.csproj.AssemblyReference.cache
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.Properties.Resources.resources
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.csproj.GenerateResource.cache
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.GeneratedMSBuildEditorConfig.editorconfig
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.AssemblyInfoInputs.cache
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.AssemblyInfo.cs
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.csproj.CoreCompileInputs.cache
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.dll
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\refint\BackEnd.dll
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.pdb
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\ref\BackEnd.dll
