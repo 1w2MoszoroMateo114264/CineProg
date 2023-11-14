@@ -28,5 +28,9 @@ namespace BackEnd.Dominio
             this.id = id;
 			this.Genero = genero;
         }
+
+        public Genero_Pelis()
+        {
+        }
     }
 }

@@ -269,14 +269,6 @@ go
 
 
 --SP
-create proc sp_consultar_funciones
-as
-begin
-select nro_funcion, dia, hora, titulo, s.nro_sala
-from Funciones f join Peliculas p on f.id_pelicula = p.id_pelicula
-join Salas s on f.nro_sala = s.nro_sala
-end
-
 
 create proc sp_InsertarMaestro
     @fecha datetime, 
@@ -293,7 +285,7 @@ BEGIN
 END
 go
 
-create proc sp_detallefactura
+create proc sp_Insertardetalle
    @nro_detalleFactura int,
    @nro_funcion int,
    @nro_Factura int,
@@ -319,7 +311,73 @@ begin
 end
 go
 
+create proc sp_consultar_butacas
+as
+begin
+     select * from Butacas
+end
+go
+
+create proc sp_consultar_edades
+as
+begin
+     select * from Edades
+end
+go
+
+create proc sp_consultar_formasPago
+as
+begin
+     select * from Formas_de_pago
+end
+go
+
+create proc sp_consultar_funciones
+as
+begin
+select nro_funcion, dia, hora, titulo, s.nro_sala
+from Funciones f join Peliculas p on f.id_pelicula = p.id_pelicula
+join Salas s on f.nro_sala = s.nro_sala
+end
+go
+
+create proc sp_consultar_Genero_Pelis
+as
+begin
+     select * from Generos_pelis
+end
+go
+
+create proc sp_consultar_peliculas
+as
+begin
+     select * from Peliculas
+end
+go
+
+create proc sp_consultar_salas
+as
+begin
+     select * from Salas
+end
+go
+
+create proc sp_consultar_sucursales
+as
+begin
+     select * from Sucursales
+end
+go
+
+create proc sp_consultar_tipo_entradas
+as
+begin
+     select * from Tipo_Entradas
+end
+go
+
 
 select * from Butacas
 delete from Facturas	
 DBCC CHECKIDENT (Facturas, RESEED, 0)
+go

@@ -50,7 +50,7 @@ namespace BackEnd.Datos.Implementacion
 
                 foreach (Detalle_factura df in oFactura.Detalles)
                 {
-                    cmdDetalle = new SqlCommand("sp_detallefactura",conexion,t);
+                    cmdDetalle = new SqlCommand("sp_Insertardetalle", conexion,t);
                     cmdDetalle.CommandType = CommandType.StoredProcedure;
                     cmdDetalle.Parameters.AddWithValue("@nro_detalleFactura", detalleNro);
                     cmdDetalle.Parameters.AddWithValue("@nro_funcion", df.Funciones.NroFuncion);
@@ -79,7 +79,7 @@ namespace BackEnd.Datos.Implementacion
         public List<Butacas> GetButacas()
         {
             List<Butacas> lButacas = new List<Butacas>();
-            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_funciones");
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_butacas");
             foreach (DataRow fila in tabla.Rows)
             {
                 Butacas oButacas = new Butacas();
@@ -97,7 +97,7 @@ namespace BackEnd.Datos.Implementacion
         public List<Edades> GetEdades()
         {
             List<Edades> lEdades = new List<Edades>();
-            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_funciones");
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_edades");
             foreach (DataRow fila in tabla.Rows)
             {
                 Edades oEdades = new Edades();
@@ -113,7 +113,7 @@ namespace BackEnd.Datos.Implementacion
         public List<Forma_de_pagos> GetFormasPago()
         {
             List<Forma_de_pagos> lFormasPago = new List<Forma_de_pagos>();
-            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_funciones");
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_formasPago");
             foreach (DataRow fila in tabla.Rows)
             {
                 Forma_de_pagos oFormaPago = new Forma_de_pagos();
@@ -151,44 +151,107 @@ namespace BackEnd.Datos.Implementacion
 
         public List<Genero_Pelis> GetGenero_Pelis()
         {
-            throw new NotImplementedException();
+            List<Genero_Pelis> lGernero_Pelis = new List<Genero_Pelis>();
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_Genero_Pelis");
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Genero_Pelis oGenero_Pelis = new Genero_Pelis();
+                int id = int.Parse(fila["id"].ToString());
+                string genero = fila["genero"].ToString();
+                oGenero_Pelis.Id = id;
+                oGenero_Pelis.Genero = genero;
+                lGernero_Pelis.Add(oGenero_Pelis);
+            }
+            return lGernero_Pelis;
         }
 
         public List<Peliculas> GetPeliculas()
         {
-            throw new NotImplementedException();
+            List<Peliculas> lPeliculas = new List<Peliculas>();
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_peliculas");
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Peliculas oPeliculas = new Peliculas();
+                int idPelicula = int.Parse(fila["id"].ToString());
+                string titulo = fila["titulo"].ToString();
+                string genero = fila["genero"].ToString();
+                string clasificacion = fila["clasificacion"].ToString();
+                int duracion = int.Parse(fila["duracion"].ToString());
+                string descripcion = fila["descripcion"].ToString();
+                string estadoPelicula = fila["estado_pelicula"].ToString();
+                oPeliculas.IdPelicula = idPelicula;
+                oPeliculas.Titulo = titulo;
+                oPeliculas.IdGenero.Genero = genero;
+                oPeliculas.IdEdad.Clasificacion = clasificacion;
+                oPeliculas.Duracion = duracion;
+                oPeliculas.Descripcion = descripcion;
+                oPeliculas.EstadoPelicula = estadoPelicula;
+                lPeliculas.Add(oPeliculas);
+            }
+            return lPeliculas;
         }
 
         public List<Salas> GetSalas()
         {
-            throw new NotImplementedException();
+            List<Salas> lSalas = new List<Salas>();
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_salas");
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Salas oSalas = new Salas();
+                int NroSala = int.Parse(fila["nro_sala"].ToString());
+                int Capacidad = int.Parse(fila["capacidad"].ToString());
+                int IdSucursal = int.Parse(fila["id_sucursal"].ToString());
+                oSalas.NroSala = NroSala;
+                oSalas.Capacidad = Capacidad;
+                oSalas.IdSucursal = IdSucursal;
+                lSalas.Add(oSalas);
+            }
+            return lSalas;
         }
 
         public List<Sucursales> GetSucursales()
         {
-            throw new NotImplementedException();
+            List<Sucursales> lSucursales = new List<Sucursales>();
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_sucursales");
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Sucursales oSucursales = new Sucursales();
+                int idSucursal = int.Parse(fila["id"].ToString());
+                string barrio = fila["barrio"].ToString();
+                string nombre = fila["nombre"].ToString();
+
+
+                oSucursales.IdSucursal = idSucursal;
+                oSucursales.Barrio = barrio;
+                oSucursales.Nombre = nombre;
+                lSucursales.Add(oSucursales);
+
+            }
+            return lSucursales;
         }
 
         public List<Tipo_Entrada> GetTipoEntradas()
         {
-            throw new NotImplementedException();
+            List<Tipo_Entrada> lTipoEntrada = new List<Tipo_Entrada>();
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_tipo_entradas");
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Tipo_Entrada oTipoEntrada = new Tipo_Entrada();
+                int id = int.Parse(fila["id"].ToString());
+                string tipoEntrada = fila["tipoEntrada"].ToString();
+                double precio = double.Parse(fila["precio"].ToString());
+
+                oTipoEntrada.IdEntrada = id;
+                oTipoEntrada.TipoEntrada = tipoEntrada;
+                oTipoEntrada.Precio = precio;
+                lTipoEntrada.Add(oTipoEntrada);
+            }
+            return lTipoEntrada;
         }
 
         public List<Factura> ObtenerFacturaPorFiltros(DateTime desde, DateTime hasta, int dni)
         {
-            List<Factura> lstFactura = new List<Factura>();
-            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultarFactura_ConFiltros", lFiltros);
-            //mapear un registro de la tabla a un objeto del modelo de dominio
-            foreach (DataRow fila in tabla.Rows)
-            {
-                Presupuesto p = new Presupuesto();
-                p.PresupuestoNro = int.Parse(fila["presupuesto_nro"].ToString());
-                p.Fecha = DateTime.Parse(fila["fecha"].ToString());
-                p.Cliente = fila["cliente"].ToString();
-                p.Descuento = double.Parse(fila["descuento"].ToString());
-                lPresupuestos.Add(p);
-            }
-            return lPresupuestos;
+            throw new NotImplementedException();
         }
     }
 }
