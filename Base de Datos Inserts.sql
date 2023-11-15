@@ -376,6 +376,75 @@ begin
 end
 go
 
+create proc sp_ConsultarFunciones_Filtradas
+@idPelicula int
+as
+begin
+select * from Funciones where (id_pelicula = @idPelicula) or (@idPelicula is null)
+end
+go
+
+--sp para abm pelicula
+create proc sp_InsPelicula
+@titulo varchar (500),
+@id_genero int,
+@id_edad int,
+@duracion smallint,
+@descripcion varchar (500),
+@estado_pelicula varchar(35)
+as
+begin
+insert into Peliculas(titulo,id_genero,id_edad,duracion,descripcion,estado_pelicula)
+       values(@titulo,@id_genero,@id_edad,@duracion,@descripcion,@estado_pelicula)
+end
+go
+
+create proc sp_ConsultarPeliculas_Filtradas
+@titulo varchar(100),
+@idGenero int,
+@idEdad int
+as
+begin
+     select * from Peliculas where (@titulo is null or titulo like '%'+@titulo+'%')
+	                           AND (@idGenero is null or id_genero = @idGenero)
+							   AND (@idEdad is null or id_edad = @idEdad)
+end
+go
+
+create proc sp_ModPelicula
+@idPelicula int,
+@titulo varchar(100),
+@idGenero int,
+@idEdad int,
+@duracion smallint,
+@desc varchar(1000)
+as
+begin
+     update Peliculas set titulo = @titulo, id_genero = @idGenero, id_edad = @idEdad, duracion = @duracion, descripcion = @desc
+	                  where id_pelicula = @idPelicula
+end
+go
+
+create proc sp_ModEstado_Pelicula
+@idPelicula int
+as
+begin
+     declare @estadoActual varchar (50)
+	 set @estadoActual = (select estado_pelicula from Peliculas where id_pelicula = @idPelicula)
+     if @estadoActual = 'Disponible'
+	    begin
+	      update Peliculas set estado_pelicula = 'No Disponible' where id_pelicula = @idPelicula
+	    end
+	 Else if @estadoActual = 'No Disponible' 
+	    begin
+	      update Peliculas set estado_pelicula = 'Disponible' where id_pelicula = @idPelicula
+	    end
+end
+go
+
+exec sp_ModEstado_Pelicula @idPelicula = 1;
+go
+select * from Peliculas
 
 select * from Butacas
 delete from Facturas	
