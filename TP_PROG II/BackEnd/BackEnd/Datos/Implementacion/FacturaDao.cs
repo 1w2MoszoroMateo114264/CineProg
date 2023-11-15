@@ -94,22 +94,6 @@ namespace BackEnd.Datos.Implementacion
             return lButacas;
         }
 
-        public List<Edades> GetEdades()
-        {
-            List<Edades> lEdades = new List<Edades>();
-            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_edades");
-            foreach (DataRow fila in tabla.Rows)
-            {
-                Edades oEdades = new Edades();
-                int id = int.Parse(fila["id_edad"].ToString());
-                string clasificacion = fila["clasificacion"].ToString();
-                oEdades.ID = id;
-                oEdades.Clasificacion = clasificacion;
-                lEdades.Add(oEdades);
-            }
-            return lEdades;
-        }
-
         public List<Forma_de_pagos> GetFormasPago()
         {
             List<Forma_de_pagos> lFormasPago = new List<Forma_de_pagos>();
@@ -149,22 +133,6 @@ namespace BackEnd.Datos.Implementacion
                 lFunciones.Add(oFunciones);
             }
             return lFunciones;
-        }
-
-        public List<Genero_Pelis> GetGenero_Pelis()
-        {
-            List<Genero_Pelis> lGernero_Pelis = new List<Genero_Pelis>();
-            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_Genero_Pelis");
-            foreach (DataRow fila in tabla.Rows)
-            {
-                Genero_Pelis oGenero_Pelis = new Genero_Pelis();
-                int id = int.Parse(fila["id"].ToString());
-                string genero = fila["genero"].ToString();
-                oGenero_Pelis.Id = id;
-                oGenero_Pelis.Genero = genero;
-                lGernero_Pelis.Add(oGenero_Pelis);
-            }
-            return lGernero_Pelis;
         }
 
         public List<Peliculas> GetPeliculas()

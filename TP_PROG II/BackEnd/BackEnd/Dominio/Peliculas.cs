@@ -10,8 +10,8 @@ namespace BackEnd.Dominio
     {
         public int IdPelicula { get; set; }
         public string Titulo { get; set; }
-        public Genero_Pelis IdGenero { get; set; }
-        public Edades IdEdad { get; set; }
+        public int IdGenero { get; set; }
+        public int IdEdad { get; set; }
         public int Duracion { get; set; }
         public string Descripcion { get; set; }
         public string EstadoPelicula { get; set; }
@@ -19,7 +19,7 @@ namespace BackEnd.Dominio
         {
 
         }
-        public Peliculas(int idPeli, string titulo, Genero_Pelis idGenero, Edades idEdad, int duracion, string descripcion, string estadoPelicula)
+        public Peliculas(int idPeli, string titulo, int idGenero, int idEdad, int duracion, string descripcion, string estadoPelicula)
         {
             IdPelicula = idPeli;
             Titulo = titulo;

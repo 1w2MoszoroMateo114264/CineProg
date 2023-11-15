@@ -10,9 +10,7 @@ namespace BackEnd.Datos.Interfaz
     public interface IFacturaDao
     {
         List<Funciones> GetFunciones();
-        List<Edades> GetEdades();
         List<Forma_de_pagos> GetFormasPago();
-        List<Genero_Pelis> GetGenero_Pelis();
         List<Peliculas> GetPeliculas();
         List<Salas> GetSalas();
         List<Sucursales> GetSucursales();

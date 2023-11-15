@@ -12,59 +12,61 @@ namespace BackEnd.Fachada.Implementacion
 {
     public class Fachada : IFachada
     {
-        private IFacturaDao dao;
+        private IFacturaDao fDao;
+        private IPeliculaDao pDao;
         public Fachada()
         {
-            dao = new FacturaDao();
+            fDao = new FacturaDao();
+            pDao = new PeliculaDao();
         }
         public List<Butacas> ObtenerButacas()
         {
-            return dao.GetButacas();
+            return fDao.GetButacas();
         }
 
         public List<Edades> ObtenerEdades()
         {
-            return dao.GetEdades();
+            return pDao.GetEdades();
         }
 
         public List<Forma_de_pagos> ObtenerFormasPago()
         {
-            return dao.GetFormasPago();
+            return fDao.GetFormasPago();
         }
 
         public List<Funciones> ObtenerFunciones()
         {
-            return dao.GetFunciones();
+            return fDao.GetFunciones();
         }
 
         public List<Genero_Pelis> ObtenerGenero_Pelis()
         {
-            return dao.GetGenero_Pelis();
+            return pDao.GetGenero_Pelis();
         }
 
         public List<Peliculas> ObtenerPeliculas()
         {
-            return dao.GetPeliculas();
+            return fDao.GetPeliculas();
         }
 
         public List<Salas> ObtenerSalas()
         {
-            return dao.GetSalas();
+            return fDao.GetSalas();
         }
 
         public List<Sucursales> ObtenerSucursales()
         {
-            return dao.GetSucursales();
+            return fDao.GetSucursales();
         }
 
         public List<Tipo_Entrada> ObtenerTipoEntradas()
         {
-            return dao.GetTipoEntradas();
+            return fDao.GetTipoEntradas();
         }
 
         public bool SaveFactura(Factura oFactura)
         {
-            return dao.crearFactura(oFactura);
+            return fDao.crearFactura(oFactura);
         }
     }
 }

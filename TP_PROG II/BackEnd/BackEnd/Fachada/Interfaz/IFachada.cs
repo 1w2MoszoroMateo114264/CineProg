@@ -1,4 +1,5 @@
-﻿using BackEnd.Dominio;
+﻿using BackEnd.Datos;
+using BackEnd.Dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,12 @@ namespace BackEnd.Fachada.Interfaz
         List<Tipo_Entrada> ObtenerTipoEntradas();
         List<Butacas> ObtenerButacas();
         bool SaveFactura(Factura oFactura);
+
+        bool CrearPelicula(Peliculas oPelicula);
+        bool ModPelicula(Peliculas oPelicula);
+        bool DarAltaOBajaPelicula(int idPelicula);
+        List<Peliculas> GetPeliculasFiltradas(List<Parametro> lstFiltros);
+        List<Edades> GetEdades();
+        List<Genero_Pelis> GetGenero_Pelis();
     }
 }
