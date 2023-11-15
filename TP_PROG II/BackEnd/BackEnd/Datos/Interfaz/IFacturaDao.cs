@@ -16,6 +16,7 @@ namespace BackEnd.Datos.Interfaz
         List<Sucursales> GetSucursales();
         List<Tipo_Entrada> GetTipoEntradas();
         List<Butacas> GetButacas();
+        //-----------------PELICULAS----------------------//
         bool crearFactura(Factura oFactura);
         bool actualizarFactura(Factura oFactura);
         List<Factura> ObtenerFacturaPorFiltros(DateTime desde, DateTime hasta, int dni);

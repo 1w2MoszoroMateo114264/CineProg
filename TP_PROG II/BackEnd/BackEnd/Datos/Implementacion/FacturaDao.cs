@@ -142,19 +142,17 @@ namespace BackEnd.Datos.Implementacion
             foreach (DataRow fila in tabla.Rows)
             {
                 Peliculas oPeliculas = new Peliculas();
-                int idPelicula = int.Parse(fila["id"].ToString());
+                int idPelicula = int.Parse(fila["id_pelicula"].ToString());
                 string titulo = fila["titulo"].ToString();
-                string genero = fila["genero"].ToString();
-                string clasificacion = fila["clasificacion"].ToString();
+                int genero = int.Parse(fila["id_genero"].ToString());
+                int clasificacion = int.Parse(fila["id_edad"].ToString());
                 int duracion = int.Parse(fila["duracion"].ToString());
                 string descripcion = fila["descripcion"].ToString();
                 string estadoPelicula = fila["estado_pelicula"].ToString();
                 oPeliculas.IdPelicula = idPelicula;
                 oPeliculas.Titulo = titulo;
-                oPeliculas.IdGenero = new Genero_Pelis();
-                oPeliculas.IdGenero.Genero = genero;
-                oPeliculas.IdEdad = new Edades();
-                oPeliculas.IdEdad.Clasificacion = clasificacion;
+                oPeliculas.IdGenero = genero;
+                oPeliculas.IdEdad = clasificacion;
                 oPeliculas.Duracion = duracion;
                 oPeliculas.Descripcion = descripcion;
                 oPeliculas.EstadoPelicula = estadoPelicula;

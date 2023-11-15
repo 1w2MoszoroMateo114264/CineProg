@@ -1,4 +1,5 @@
-﻿using BackEnd.Datos.Implementacion;
+﻿using BackEnd.Datos;
+using BackEnd.Datos.Implementacion;
 using BackEnd.Datos.Interfaz;
 using BackEnd.Dominio;
 using BackEnd.Fachada.Interfaz;
@@ -19,14 +20,39 @@ namespace BackEnd.Fachada.Implementacion
             fDao = new FacturaDao();
             pDao = new PeliculaDao();
         }
-        public List<Butacas> ObtenerButacas()
+        //-----------------PELICULAS----------------------//
+        public bool CrearPelicula(Peliculas oPelicula)
         {
-            return fDao.GetButacas();
+            return pDao.CrearPelicula(oPelicula);
+        }
+
+        public bool DarAltaOBajaPelicula(int idPelicula)
+        {
+            return pDao.DarAltaOBajaPelicula(idPelicula);
+        }
+
+        public bool ModPelicula(Peliculas oPelicula)
+        {
+            return pDao.ModPelicula(oPelicula);
         }
 
         public List<Edades> ObtenerEdades()
         {
             return pDao.GetEdades();
+        }
+
+        public List<Genero_Pelis> ObtenerGenero_Pelis()
+        {
+            return pDao.GetGenero_Pelis();
+        }
+        public List<Peliculas> ObtenerPeliculasFiltradas(List<Parametro> lstFiltros)
+        {
+            return pDao.GetPeliculasFiltradas(lstFiltros);
+        }
+        //-----------------FACTURAS----------------------//
+        public List<Butacas> ObtenerButacas()
+        {
+            return fDao.GetButacas();
         }
 
         public List<Forma_de_pagos> ObtenerFormasPago()
@@ -37,11 +63,6 @@ namespace BackEnd.Fachada.Implementacion
         public List<Funciones> ObtenerFunciones()
         {
             return fDao.GetFunciones();
-        }
-
-        public List<Genero_Pelis> ObtenerGenero_Pelis()
-        {
-            return pDao.GetGenero_Pelis();
         }
 
         public List<Peliculas> ObtenerPeliculas()

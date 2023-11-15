@@ -298,19 +298,6 @@ BEGIN
 END
 go
 
-create proc sp_InsertarPelicula
-@titulo varchar(100),
-@id_genero int,
-@id_edad int,
-@duracion smallint,
-@descripcion varchar(500)
-as
-begin
-     insert into Peliculas (titulo,id_genero,id_edad,duracion,descripcion,estado_pelicula)
-	 values (@titulo,@id_genero,@id_edad,@duracion,@descripcion,'Disponible')
-end
-go
-
 create proc sp_consultar_butacas
 as
 begin
@@ -385,6 +372,7 @@ end
 go
 
 --sp para abm pelicula
+
 create proc sp_InsPelicula
 @titulo varchar (500),
 @id_genero int,
@@ -400,9 +388,9 @@ end
 go
 
 create proc sp_ConsultarPeliculas_Filtradas
-@titulo varchar(100),
-@idGenero int,
-@idEdad int
+@titulo varchar(100) = null,
+@idGenero int = null,
+@idEdad int = null
 as
 begin
      select * from Peliculas where (@titulo is null or titulo like '%'+@titulo+'%')
@@ -444,7 +432,7 @@ go
 
 exec sp_ModEstado_Pelicula @idPelicula = 1;
 go
-select * from Peliculas
+select * from Facturas
 
 select * from Butacas
 delete from Facturas	

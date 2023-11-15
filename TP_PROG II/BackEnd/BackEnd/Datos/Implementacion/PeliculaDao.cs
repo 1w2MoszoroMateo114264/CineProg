@@ -50,19 +50,31 @@ namespace BackEnd.Datos.Implementacion
 
         public bool DarAltaOBajaPelicula(int idPelicula)
         {
-            bool resultado = false;
+            bool resultado = true;
             SqlConnection conexion = HelperDao.ObtenerInstancia().ObtenerConexion();
-
-            SqlCommand comando = new SqlCommand("sp_ModEstado_Pelicula", conexion);
-            comando.CommandType = CommandType.StoredProcedure;
-
-            comando.Parameters.AddWithValue("@idPelicula", idPelicula);
-
-            if (comando.ExecuteNonQuery() == 1)
+            SqlTransaction t = null;
+            try
             {
-                resultado = true;
-            }
+                conexion.Open();
+                t = conexion.BeginTransaction();
+                SqlCommand comando = new SqlCommand("sp_ModEstado_Pelicula", conexion,t);
+                comando.CommandType = CommandType.StoredProcedure;
 
+                comando.Parameters.AddWithValue("@idPelicula", idPelicula);
+                comando.ExecuteNonQuery();
+                t.Commit() ;
+            }
+            catch
+            {
+                if (t != null)
+                    t.Rollback();
+                resultado = false;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                    conexion.Close();
+            }
             return resultado;
         }
 
@@ -105,13 +117,13 @@ namespace BackEnd.Datos.Implementacion
             foreach ( DataRow fila in tabla.Rows)
             {
                 Peliculas oPeli = new Peliculas();
-                oPeli.IdPelicula = int.Parse(fila[0].ToString());
-                oPeli.Titulo = fila[1].ToString();
-                oPeli.IdGenero = int.Parse(fila[2].ToString());
-                oPeli.IdEdad  = int.Parse(fila[3].ToString());
-                oPeli.Duracion = int.Parse(fila[4].ToString());
-                oPeli.Descripcion = fila[5].ToString();
-                oPeli.EstadoPelicula = fila[6].ToString();
+                oPeli.IdPelicula = int.Parse(fila["id_pelicula"].ToString());
+                oPeli.Titulo = fila["titulo"].ToString();
+                oPeli.IdGenero = int.Parse(fila["id_genero"].ToString());
+                oPeli.IdEdad  = int.Parse(fila["id_edad"].ToString());
+                oPeli.Duracion = int.Parse(fila["duracion"].ToString());
+                oPeli.Descripcion = fila["descripcion"].ToString();
+                oPeli.EstadoPelicula = fila["estado_pelicula"].ToString();
                 lPeliculas.Add(oPeli);
             }
             return lPeliculas;

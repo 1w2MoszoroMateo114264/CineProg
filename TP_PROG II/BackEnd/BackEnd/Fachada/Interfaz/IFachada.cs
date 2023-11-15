@@ -10,22 +10,21 @@ namespace BackEnd.Fachada.Interfaz
 {
     public interface IFachada
     {
+        //-----------------FACTURAS----------------------//
         List<Funciones> ObtenerFunciones();
-        List<Edades> ObtenerEdades();
         List<Forma_de_pagos> ObtenerFormasPago();
-        List<Genero_Pelis> ObtenerGenero_Pelis();
         List<Peliculas> ObtenerPeliculas();
         List<Salas> ObtenerSalas();
         List<Sucursales> ObtenerSucursales();
         List<Tipo_Entrada> ObtenerTipoEntradas();
         List<Butacas> ObtenerButacas();
         bool SaveFactura(Factura oFactura);
-
+        //-----------------PELICULAS----------------------//
         bool CrearPelicula(Peliculas oPelicula);
         bool ModPelicula(Peliculas oPelicula);
         bool DarAltaOBajaPelicula(int idPelicula);
-        List<Peliculas> GetPeliculasFiltradas(List<Parametro> lstFiltros);
-        List<Edades> GetEdades();
-        List<Genero_Pelis> GetGenero_Pelis();
+        List<Peliculas> ObtenerPeliculasFiltradas(List<Parametro> lstFiltros);
+        List<Genero_Pelis> ObtenerGenero_Pelis();
+        List<Edades> ObtenerEdades();
     }
 }
