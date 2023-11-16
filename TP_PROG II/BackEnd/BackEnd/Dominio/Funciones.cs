@@ -29,28 +29,28 @@ namespace BackEnd.Dominio
 			get { return hora; }
 			set { hora = value; }
 		}
-		private Peliculas pelicula;
+		private int idPelicula;
 
-		public Peliculas Pelicula
+		public int IdPelicula
 		{
-			get { return pelicula; }
-			set { pelicula = value; }
+			get { return idPelicula; }
+			set { idPelicula = value; }
 		}
 
-		private Salas sala;
+		private int nroSala;
 
-		public Salas Sala
+		public int NroSala
 		{
-			get { return sala; }
-			set { sala = value; }
+			get { return nroSala; }
+			set { nroSala = value; }
 		}
-        public Funciones(int nroFuncion, DateTime dia, string hora, Peliculas pelicula, Salas sala)
+        public Funciones(int nroFuncion, DateTime dia, string hora, int pelicula, int sala)
         {
 			this.nroFuncion = nroFuncion;
 			this.dia = dia;
 			this.hora = hora;
-			this.pelicula = pelicula;
-			this.sala = sala;
+			this.idPelicula = pelicula;
+			this.nroSala = sala;
         }
         public Funciones()
         {

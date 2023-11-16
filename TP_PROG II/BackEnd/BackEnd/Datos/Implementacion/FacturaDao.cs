@@ -101,7 +101,7 @@ namespace BackEnd.Datos.Implementacion
             foreach (DataRow fila in tabla.Rows)
             {
                 Forma_de_pagos oFormaPago = new Forma_de_pagos();
-                int IdPago = int.Parse(fila["IdPago"].ToString());
+                int IdPago = int.Parse(fila["id_forma_de_pago"].ToString());
                 string FormaPago = fila["descripcion"].ToString();
                 oFormaPago.IdPago = IdPago;
                 oFormaPago.FormaPago = FormaPago;
@@ -121,18 +121,40 @@ namespace BackEnd.Datos.Implementacion
                 int nroFuncion = int.Parse(fila["nro_funcion"].ToString());
                 DateTime dia = DateTime.Parse(fila["dia"].ToString());
                 string hora = fila["hora"].ToString();
-                string titulo = fila["titulo"].ToString();
+                int id_pelicula = int.Parse(fila["id_pelicula"].ToString());
                 int nroSala = int.Parse(fila["nro_sala"].ToString());
                 oFunciones.NroFuncion = nroFuncion;
                 oFunciones.Dia = dia;
                 oFunciones.Hora = hora;
-                oFunciones.Pelicula = new Peliculas();
-                oFunciones.Pelicula.Titulo = titulo;
-                oFunciones.Sala = new Salas();
-                oFunciones.Sala.NroSala = nroSala;
+                oFunciones.IdPelicula = id_pelicula;
+                oFunciones.NroSala = nroSala;
                 lFunciones.Add(oFunciones);
             }
             return lFunciones;
+        }
+
+        public List<Funciones> GetFuncionesFiltradas(List<Parametro> lstParametros)
+        {
+            List<Funciones> lista = new List<Funciones>();
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_ConsultarFunciones_Filtradas", lstParametros);
+            //mapeo de objetos Funciones
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Funciones oFunciones = new Funciones();
+                int nroFuncion = int.Parse(fila["nro_funcion"].ToString());
+                DateTime dia = DateTime.Parse(fila["dia"].ToString());
+                string hora = fila["hora"].ToString();
+                int id_pelicula = int.Parse(fila["id_pelicula"].ToString());
+                int nroSala = int.Parse(fila["nro_sala"].ToString());
+                oFunciones.NroFuncion = nroFuncion;
+                oFunciones.Dia = dia;
+                oFunciones.Hora = hora;
+                oFunciones.IdPelicula = id_pelicula;
+                oFunciones.NroSala = nroSala;
+                lista.Add(oFunciones);
+            }
+            return lista;
+
         }
 
         public List<Peliculas> GetPeliculas()
@@ -179,27 +201,6 @@ namespace BackEnd.Datos.Implementacion
             return lSalas;
         }
 
-        public List<Sucursales> GetSucursales()
-        {
-            List<Sucursales> lSucursales = new List<Sucursales>();
-            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_sucursales");
-            foreach (DataRow fila in tabla.Rows)
-            {
-                Sucursales oSucursales = new Sucursales();
-                int idSucursal = int.Parse(fila["id"].ToString());
-                string barrio = fila["barrio"].ToString();
-                string nombre = fila["nombre"].ToString();
-
-
-                oSucursales.IdSucursal = idSucursal;
-                oSucursales.Barrio = barrio;
-                oSucursales.Nombre = nombre;
-                lSucursales.Add(oSucursales);
-
-            }
-            return lSucursales;
-        }
-
         public List<Tipo_Entrada> GetTipoEntradas()
         {
             List<Tipo_Entrada> lTipoEntrada = new List<Tipo_Entrada>();
@@ -207,8 +208,8 @@ namespace BackEnd.Datos.Implementacion
             foreach (DataRow fila in tabla.Rows)
             {
                 Tipo_Entrada oTipoEntrada = new Tipo_Entrada();
-                int id = int.Parse(fila["id"].ToString());
-                string tipoEntrada = fila["tipoEntrada"].ToString();
+                int id = int.Parse(fila["id_entrada"].ToString());
+                string tipoEntrada = fila["tipo_entrada"].ToString();
                 double precio = double.Parse(fila["precio"].ToString());
 
                 oTipoEntrada.IdEntrada = id;
@@ -219,7 +220,7 @@ namespace BackEnd.Datos.Implementacion
             return lTipoEntrada;
         }
 
-        public List<Factura> ObtenerFacturaPorFiltros(DateTime desde, DateTime hasta, int dni)
+        public List<Factura> ObtenerFacturaPorFiltros(List<Parametro> lstParametros)
         {
             throw new NotImplementedException();
         }

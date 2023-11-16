@@ -8,14 +8,38 @@ namespace BackEnd.Dominio
 {
     public class ButacasXFunciones
     {
-		private Funciones funciones;
+		private int nroFunciones;
 
-		public Funciones Funciones
+		public int NroFunciones
+        {
+			get { return nroFunciones; }
+			set { nroFunciones = value; }
+		}
+		private int nroButaca;
+
+		public int NroButaca
 		{
-			get { return funciones; }
-			set { funciones = value; }
+			get { return nroButaca; }
+			set { nroButaca = value; }
 		}
 
+		private string estado;
 
-	}
+		public string Estado
+		{
+			get { return estado; }
+			set { estado = value; }
+		}
+        public ButacasXFunciones()
+        {
+            
+        }
+        public ButacasXFunciones(int nroFuncion, int nroButaca, string estado)
+        {
+			this.nroButaca = nroButaca;
+			this.nroFunciones= nroFuncion;
+			this.estado = estado;
+        }
+
+    }
 }

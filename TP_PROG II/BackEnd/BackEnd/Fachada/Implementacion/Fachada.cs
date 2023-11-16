@@ -75,11 +75,6 @@ namespace BackEnd.Fachada.Implementacion
             return fDao.GetSalas();
         }
 
-        public List<Sucursales> ObtenerSucursales()
-        {
-            return fDao.GetSucursales();
-        }
-
         public List<Tipo_Entrada> ObtenerTipoEntradas()
         {
             return fDao.GetTipoEntradas();
@@ -88,6 +83,11 @@ namespace BackEnd.Fachada.Implementacion
         public bool SaveFactura(Factura oFactura)
         {
             return fDao.crearFactura(oFactura);
+        }
+
+        public List<Funciones> ObtenerFuncionesFiltradas(List<Parametro> lstFiltros)
+        {
+            return fDao.GetFuncionesFiltradas(lstFiltros);
         }
     }
 }

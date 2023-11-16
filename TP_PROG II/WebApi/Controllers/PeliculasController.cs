@@ -33,7 +33,36 @@ namespace WebApi.Controllers
                 return StatusCode(500, "Error Interno! Intentar más Tarde.");
             }
         }
-
+        // GET: api/<PeliculasController>
+        [HttpGet("/Obtener Clasificaciones")]
+        public IActionResult GetClasificaciones()
+        {
+            List<Edades> lista = null;
+            try
+            {
+                lista = app.ObtenerEdades();
+                return Ok(lista);
+            }
+            catch
+            {
+                return StatusCode(500, "Error Interno! Intentar más Tarde.");
+            }
+        }
+        // GET: api/<PeliculasController>
+        [HttpGet("/Obtener Generos")]
+        public IActionResult GetGeneros()
+        {
+            List<Genero_Pelis> lista = null;
+            try
+            {
+                lista = app.ObtenerGenero_Pelis();
+                return Ok(lista);
+            }
+            catch
+            {
+                return StatusCode(500, "Error Interno! Intentar más Tarde.");
+            }
+        }
         // GET api/<PeliculasController>/5
         [HttpGet("/Obtener Peliculas Filtradas")]
         public IActionResult ObtenerPeliculasXFiltro(string? titulo = null, int? idGenero = null, int? idEdad = null)
@@ -93,7 +122,7 @@ namespace WebApi.Controllers
 
         // PUT api/<PeliculasController>/5
         [HttpPut("/Alternar Estado de Pelicula")]
-        public IActionResult Put(int idPelicula)
+        public IActionResult CambiarDisponibilidadPeli(int idPelicula)
         {
             try
             {
@@ -111,7 +140,29 @@ namespace WebApi.Controllers
                 return StatusCode(500, "Error");
             }
         }
+        // PUT api/<PeliculasController>/5
+        [HttpPut("/Modificar Pelicula")]
+        public IActionResult ModificarPelicula(Peliculas oPelicula)
+        {
+            try
+            {
+                if (oPelicula == null)
+                {
+                    return BadRequest("Pelicula Invalida");
+                }
 
+                if (app.ModPelicula(oPelicula))
+                {
+                    return Ok(oPelicula);
+                }
+                else
+                    return NotFound("No se pudo Modificar la Pelicula");
+            }
+            catch
+            {
+                return StatusCode(500, "Error");
+            }
+        }
         //// DELETE api/<PeliculasController>/5
         //[HttpDelete("{id}")]
         //public void Delete(int id)

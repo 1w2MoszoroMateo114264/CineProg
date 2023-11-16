@@ -101,8 +101,8 @@ namespace BackEnd.Datos.Implementacion
             foreach (DataRow fila in tabla.Rows)
             {
                 Genero_Pelis oGenero_Pelis = new Genero_Pelis();
-                int id = int.Parse(fila["id"].ToString());
-                string genero = fila["genero"].ToString();
+                int id = int.Parse(fila["id_genero"].ToString());
+                string genero = fila["descripcion"].ToString();
                 oGenero_Pelis.Id = id;
                 oGenero_Pelis.Genero = genero;
                 lGernero_Pelis.Add(oGenero_Pelis);
@@ -149,6 +149,7 @@ namespace BackEnd.Datos.Implementacion
                 comando.Parameters.AddWithValue("@desc", oPelicula.Descripcion);
 
                 comando.ExecuteNonQuery();
+                t.Commit();
             }
             catch
             {

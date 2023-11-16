@@ -12,10 +12,10 @@ namespace BackEnd.Fachada.Interfaz
     {
         //-----------------FACTURAS----------------------//
         List<Funciones> ObtenerFunciones();
+        List<Funciones> ObtenerFuncionesFiltradas(List<Parametro> lstFiltros);
         List<Forma_de_pagos> ObtenerFormasPago();
         List<Peliculas> ObtenerPeliculas();
         List<Salas> ObtenerSalas();
-        List<Sucursales> ObtenerSucursales();
         List<Tipo_Entrada> ObtenerTipoEntradas();
         List<Butacas> ObtenerButacas();
         bool SaveFactura(Factura oFactura);

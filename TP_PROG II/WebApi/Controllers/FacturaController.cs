@@ -33,14 +33,68 @@ namespace WebApi.Controllers
                 return StatusCode(500, "Error Interno! Intentar más Tarde.");
             }
         }
-
-        // GET api/<FacturaController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET: api/<FacturaController>
+        [HttpGet("/Peliculas")]
+        public IActionResult GetPeliculas()
         {
-            return "value";
+            List<Peliculas> list = null;
+            try
+            {
+                list = app.ObtenerPeliculas();
+                return Ok(list);
+            }
+            catch
+            {
+                return StatusCode(500, "Error Interno! Intentar más Tarde.");
+            }
         }
-
+        // GET api/<FacturaController>/5
+        [HttpGet("/Funciones Filtradas x Pelicula")]
+        public IActionResult GetFuncionesXPelicula(int idPelicula)
+        {
+            List<Parametro> lstFiltro = new List<Parametro>();
+            lstFiltro.Add(new Parametro("@idPelicula", idPelicula));
+            List<Funciones> list = null;
+            try
+            {
+                list = app.ObtenerFuncionesFiltradas(lstFiltro);
+                return Ok(list);
+            }
+            catch
+            {
+                return StatusCode(500, "Error Interno! Intentar más Tarde.");
+            }
+        }
+        // GET api/<FacturaController>/5
+        [HttpGet("/Tipo De Entradas")]
+        public IActionResult GetTipoEntrada()
+        {
+            List<Tipo_Entrada> list = null;
+            try
+            {
+                list = app.ObtenerTipoEntradas();
+                return Ok(list);
+            }
+            catch
+            {
+                return StatusCode(500, "Error Interno! Intentar más Tarde.");
+            }
+        }
+        // GET api/<FacturaController>/5
+        [HttpGet("/Formas de Pago")]
+        public IActionResult GetFormasDePago()
+        {
+            List<Forma_de_pagos> list = null;
+            try
+            {
+                list = app.ObtenerFormasPago();
+                return Ok(list);
+            }
+            catch
+            {
+                return StatusCode(500, "Error Interno! Intentar más Tarde.");
+            }
+        }
         // POST api/<FacturaController>
         [HttpPost("/Insertar Factura")]
         public IActionResult SaveFactura(Factura oFactura)
@@ -66,10 +120,10 @@ namespace WebApi.Controllers
         {
         }
 
-        // DELETE api/<FacturaController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //// DELETE api/<FacturaController>/5
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

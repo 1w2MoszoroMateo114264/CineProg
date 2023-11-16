@@ -371,6 +371,14 @@ select * from Funciones where (id_pelicula = @idPelicula) or (@idPelicula is nul
 end
 go
 
+create proc sp_Consultar_ButacasXFunciones
+as
+begin
+      select * from butacaXfunciones
+end
+go
+
+
 --sp para abm pelicula
 
 create proc sp_InsPelicula
@@ -401,7 +409,7 @@ go
 
 create proc sp_ModPelicula
 @idPelicula int,
-@titulo varchar(100),
+@titulo varchar(1000),
 @idGenero int,
 @idEdad int,
 @duracion smallint,
@@ -432,8 +440,9 @@ go
 
 exec sp_ModEstado_Pelicula @idPelicula = 1;
 go
-select * from Facturas
+select * from Peliculas
 
+select * from butacaXfunciones
 select * from Butacas
 delete from Facturas	
 DBCC CHECKIDENT (Facturas, RESEED, 0)
