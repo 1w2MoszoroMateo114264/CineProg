@@ -398,12 +398,14 @@ go
 create proc sp_ConsultarPeliculas_Filtradas
 @titulo varchar(100) = null,
 @idGenero int = null,
-@idEdad int = null
+@idEdad int = null,
+@estado varchar(100) = null
 as
 begin
      select * from Peliculas where (@titulo is null or titulo like '%'+@titulo+'%')
 	                           AND (@idGenero is null or id_genero = @idGenero)
 							   AND (@idEdad is null or id_edad = @idEdad)
+							   AND (@estado is null or estado_pelicula = @estado)
 end
 go
 
