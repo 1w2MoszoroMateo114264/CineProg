@@ -20,3 +20,4 @@ D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG I
 D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\FrontEnd1\obj\Debug\net6.0-windows\FrontEnd1.pdb
 D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\FrontEnd1\obj\Debug\net6.0-windows\FrontEnd1.genruntimeconfig.cache
 D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\FrontEnd1\obj\Debug\net6.0-windows\ref\FrontEnd1.dll
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\FrontEnd1\obj\Debug\net6.0-windows\FrontEnd1.sourcelink.json

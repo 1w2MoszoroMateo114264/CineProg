@@ -12,3 +12,4 @@ D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG I
 D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\refint\BackEnd.dll
 D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.pdb
 D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\ref\BackEnd.dll
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.sourcelink.json

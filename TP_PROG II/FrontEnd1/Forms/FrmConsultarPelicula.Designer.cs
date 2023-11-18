@@ -49,6 +49,8 @@
             pictureBox2 = new PictureBox();
             btnConsultar = new Button();
             lblEstadoPelicula = new Label();
+            rbtDisponible = new RadioButton();
+            rbtNoDisponible = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -259,12 +261,40 @@
             lblEstadoPelicula.TabIndex = 41;
             lblEstadoPelicula.Text = "Estado :";
             // 
+            // rbtDisponible
+            // 
+            rbtDisponible.AutoSize = true;
+            rbtDisponible.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            rbtDisponible.ForeColor = SystemColors.Control;
+            rbtDisponible.Location = new Point(345, 260);
+            rbtDisponible.Name = "rbtDisponible";
+            rbtDisponible.Size = new Size(145, 34);
+            rbtDisponible.TabIndex = 42;
+            rbtDisponible.TabStop = true;
+            rbtDisponible.Text = "\"Disponible\"";
+            rbtDisponible.UseVisualStyleBackColor = true;
+            // 
+            // rbtNoDisponible
+            // 
+            rbtNoDisponible.AutoSize = true;
+            rbtNoDisponible.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            rbtNoDisponible.ForeColor = SystemColors.Control;
+            rbtNoDisponible.Location = new Point(510, 260);
+            rbtNoDisponible.Name = "rbtNoDisponible";
+            rbtNoDisponible.Size = new Size(179, 34);
+            rbtNoDisponible.TabIndex = 43;
+            rbtNoDisponible.TabStop = true;
+            rbtNoDisponible.Text = "\"No Disponible\"";
+            rbtNoDisponible.UseVisualStyleBackColor = true;
+            // 
             // FrmConsultarPelicula
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 30, 45);
             ClientSize = new Size(1066, 580);
+            Controls.Add(rbtNoDisponible);
+            Controls.Add(rbtDisponible);
             Controls.Add(lblEstadoPelicula);
             Controls.Add(btnConsultar);
             Controls.Add(pictureBox2);
@@ -313,5 +343,7 @@
         private PictureBox pictureBox2;
         private Button btnConsultar;
         private Label lblEstadoPelicula;
+        private RadioButton rbtDisponible;
+        private RadioButton rbtNoDisponible;
     }
 }

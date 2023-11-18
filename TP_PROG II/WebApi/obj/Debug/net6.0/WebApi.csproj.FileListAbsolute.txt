@@ -38,3 +38,4 @@ D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG I
 D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\WebApi\obj\Debug\net6.0\WebApi.pdb
 D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\WebApi\obj\Debug\net6.0\WebApi.genruntimeconfig.cache
 D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\WebApi\obj\Debug\net6.0\ref\WebApi.dll
+D:\fACULTAD\Tecnicatura Universitaria de Programacion\TPPROG2\CineProg\TP_PROG II\WebApi\obj\Debug\net6.0\WebApi.sourcelink.json
