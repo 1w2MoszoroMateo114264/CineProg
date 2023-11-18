@@ -268,7 +268,34 @@ INSERT INTO Detalle_Factura (id_detalle_factura,nro_funcion, nro_factura, id_ent
 go
 
 
+/** Object:  Table [dbo].[login]    Script Date: 18/11/2023 17:30:54 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[login](
+    [cod_usuario] [int] IDENTITY(1,1) NOT NULL,
+    [usuario] [varchar](20) NOT NULL,
+    [contraseña] [varchar](20) NOT NULL,
+ CONSTRAINT [cod] PRIMARY KEY CLUSTERED 
+(
+    [cod_usuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
 --SP
+create procedure [dbo].[SP_LOGIN_CHECK]
+@usuario varchar(30),
+@pass varchar(30)
+as
+begin
+    select usuario,contraseña from login where usuario = @usuario and contraseña = @pass
+end
+go
+
 
 create proc sp_InsertarMaestro
     @fecha datetime, 
