@@ -429,12 +429,13 @@ create proc sp_ConsultarPeliculas_Filtradas
 @estado varchar(100) = null
 as
 begin
-     select * from Peliculas where (@titulo is null or titulo like '%'+@titulo+'%')
-	                           AND (@idGenero is null or id_genero = @idGenero)
-							   AND (@idEdad is null or id_edad = @idEdad)
-							   AND (@estado is null or estado_pelicula = @estado)
+     select * from Peliculas where (@titulo is null or @titulo = '' or titulo like '%'+@titulo+'%')
+	                           AND (@idGenero is null or @idGenero = '' or id_genero = @idGenero)
+							   AND (@idEdad is null or @idEdad = '' or id_edad = @idEdad)
+							   AND (@estado is null or @estado = '' or estado_pelicula = @estado)
 end
 go
+
 
 create proc sp_ModPelicula
 @idPelicula int,
@@ -466,6 +467,7 @@ begin
 	    end
 end
 go
+
 
 exec sp_ModEstado_Pelicula @idPelicula = 1;
 go
