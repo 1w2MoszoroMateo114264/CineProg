@@ -58,5 +58,43 @@ namespace BackEnd.Datos
         {
             return conexion;
         }
+
+        public bool LoginCheck(string sP, string user, string pass)
+        {
+            SqlConnection cnn = new SqlConnection(Properties.Resources.CadenaConexion);
+            bool flag = true;
+
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(sP, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@usuario", user);
+                cmd.Parameters.AddWithValue("@pass", pass);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (!reader.Read())
+                {
+                    flag = false;
+                }
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+
+            }
+            return flag;
+        }
     }
 }

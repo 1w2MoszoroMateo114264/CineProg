@@ -89,5 +89,11 @@ namespace BackEnd.Fachada.Implementacion
         {
             return fDao.GetFuncionesFiltradas(lstFiltros);
         }
+
+        //-----------Log In----------------//
+        public bool LoginCheck(string user, string pass)
+        {
+            return HelperDao.ObtenerInstancia().LoginCheck("SP_LOGIN_CHECK", user, pass);
+        }
     }
 }

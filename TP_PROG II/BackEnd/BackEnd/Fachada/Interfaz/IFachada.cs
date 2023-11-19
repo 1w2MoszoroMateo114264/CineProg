@@ -26,5 +26,8 @@ namespace BackEnd.Fachada.Interfaz
         List<Peliculas> ObtenerPeliculasFiltradas(List<Parametro> lstFiltros);
         List<Genero_Pelis> ObtenerGenero_Pelis();
         List<Edades> ObtenerEdades();
+
+        //-----------------LOGIN----------------------//
+        bool LoginCheck(string user, string pass);
     }
 }

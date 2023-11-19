@@ -161,7 +161,7 @@
             txtTitulo.Location = new Point(358, 146);
             txtTitulo.Margin = new Padding(4, 3, 4, 3);
             txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(303, 23);
+            txtTitulo.Size = new Size(331, 23);
             txtTitulo.TabIndex = 2;
             // 
             // panel1
@@ -247,6 +247,7 @@
             btnConsultar.TabIndex = 40;
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = false;
+            btnConsultar.Click += btnConsultar_Click;
             // 
             // lblEstadoPelicula
             // 
@@ -266,7 +267,7 @@
             rbtDisponible.AutoSize = true;
             rbtDisponible.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             rbtDisponible.ForeColor = SystemColors.Control;
-            rbtDisponible.Location = new Point(345, 260);
+            rbtDisponible.Location = new Point(347, 260);
             rbtDisponible.Name = "rbtDisponible";
             rbtDisponible.Size = new Size(145, 34);
             rbtDisponible.TabIndex = 42;

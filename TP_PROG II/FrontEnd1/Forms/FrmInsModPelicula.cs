@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BackEnd.Dominio;
+using FrontEnd1.HTTP;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,7 +62,7 @@ namespace FrontEnd1.Forms
                 btnAgregar.Enabled = true;
                 cboClasificacion.SelectedIndex = -1;
                 txtTitulo.Text = string.Empty;
-                cboGenero.SelectedIndex= -1;
+                cboGenero.SelectedIndex = -1;
                 txtDuracion.Text = string.Empty;
                 txtDescripcion.Text = string.Empty;
                 lstbPeliculas.DataSource = null;
@@ -69,6 +72,36 @@ namespace FrontEnd1.Forms
             {
                 return;
             }
+        }
+
+        private void FrmInsModPelicula_Load(object sender, EventArgs e)
+        {
+            CargarGenerosAsync();
+            CargarCategoriasAsync();
+        }
+
+        private async void CargarGenerosAsync()
+        {
+            string url = "https://localhost:7246/Obtener%20Generos";
+            var result = await ClienteSingleton.GetInstance().GetAsync(url);
+            var lst = JsonConvert.DeserializeObject<List<Genero_Pelis>>(result);
+            cboGenero.DataSource = lst;
+            cboGenero.ValueMember = "Id";
+            cboGenero.DisplayMember = "Genero";
+            cboGenero.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboGenero.SelectedIndex = -1;
+        }
+
+        private async void CargarCategoriasAsync()
+        {
+            string url = "https://localhost:7246/Obtener%20Clasificaciones";
+            var result = await ClienteSingleton.GetInstance().GetAsync(url);
+            var lst = JsonConvert.DeserializeObject<List<Edades>>(result);
+            cboClasificacion.DataSource = lst;
+            cboClasificacion.ValueMember = "ID";
+            cboClasificacion.DisplayMember = "Clasificacion";
+            cboClasificacion.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboClasificacion.SelectedIndex = -1;
         }
     }
 }

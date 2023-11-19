@@ -65,7 +65,7 @@ namespace WebApi.Controllers
         }
         // GET api/<PeliculasController>/5
         [HttpGet("/Obtener Peliculas Filtradas")]
-        public IActionResult ObtenerPeliculasXFiltro(string? titulo = null, int? idGenero = null, int? idEdad = null)
+        public IActionResult ObtenerPeliculasXFiltro(string? titulo = null, int? idGenero = null, int? idEdad = null, string? estado = null)
         {
             List<Parametro> lstFiltros = null;
             List<Peliculas> lista = null;
@@ -77,6 +77,7 @@ namespace WebApi.Controllers
                 lstFiltros.Add(new Parametro("@titulo", titulo));
                 lstFiltros.Add(new Parametro("@idGenero", idGenero));
                 lstFiltros.Add(new Parametro("@idEdad", idEdad));
+                lstFiltros.Add(new Parametro("@estado", estado));
 
                 lista = app.ObtenerPeliculasFiltradas(lstFiltros);
 

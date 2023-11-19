@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "..\WebApi\WebApi.csproj", "{E56A2509-974C-4B78-AB67-0971D91EDCD6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEnd1", "..\FrontEnd1\FrontEnd1.csproj", "{8FE8F091-0AAD-4B01-A592-910DB8F7B438}"
+	ProjectSection(ProjectDependencies) = postProject
+		{62C45E65-5C0E-4017-8F5F-E2C4E1064758} = {62C45E65-5C0E-4017-8F5F-E2C4E1064758}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
