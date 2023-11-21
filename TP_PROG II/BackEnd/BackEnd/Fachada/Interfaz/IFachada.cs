@@ -14,7 +14,7 @@ namespace BackEnd.Fachada.Interfaz
         List<Funciones> ObtenerFunciones();
         List<Funciones> ObtenerFuncionesFiltradas(List<Parametro> lstFiltros);
         List<Forma_de_pagos> ObtenerFormasPago();
-        List<Peliculas> ObtenerPeliculas();
+        List<Peliculas> ObtenerPeliculasDisponibles();
         List<Salas> ObtenerSalas();
         List<Tipo_Entrada> ObtenerTipoEntradas();
         List<Butacas> ObtenerButacas();
@@ -26,7 +26,7 @@ namespace BackEnd.Fachada.Interfaz
         List<Peliculas> ObtenerPeliculasFiltradas(List<Parametro> lstFiltros);
         List<Genero_Pelis> ObtenerGenero_Pelis();
         List<Edades> ObtenerEdades();
-
+        List<Peliculas> ObtenerPeliculas();
         //-----------------LOGIN----------------------//
         bool LoginCheck(string user, string pass);
     }

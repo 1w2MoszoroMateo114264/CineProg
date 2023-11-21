@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BackEnd.Dominio;
+using FrontEnd1.HTTP;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +15,79 @@ namespace FrontEnd1.Forms
 {
     public partial class Transaccion : Form
     {
+        string NrPelicula;
         public Transaccion()
         {
             InitializeComponent();
+            NrPelicula = "";
         }
 
         private void FrmTransaccion_Load(object sender, EventArgs e)
         {
+            CargarTipoEntradaAsync();
+            CargarFormaPagoAsync();
+            CargarPeliculasAsync();
+        }
 
+        private async void CargarFuncionesAsync()
+        {
+            string NrPelicula = cboPelicula.SelectedValue?.ToString();
+
+            if (!string.IsNullOrEmpty(NrPelicula))
+            {
+                string url = "https://localhost:7246/Funciones%20Filtradas%20x%20Pelicula?idPelicula=" + NrPelicula;
+                var result = await ClienteSingleton.GetInstance().GetAsync(url);
+                var lst = JsonConvert.DeserializeObject<List<Funciones>>(result);
+
+                cboFunciones.DataSource = lst;
+                cboFunciones.ValueMember = "NroFuncion";
+                cboFunciones.DisplayMember = "ToString";
+                cboFunciones.SelectedIndex = -1;
+                cboFunciones.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una película.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void CargarPeliculasAsync()
+        {
+            string url = "https://localhost:7246/Obtener%20Peliculas%20Disponibles";
+            var result = await ClienteSingleton.GetInstance().GetAsync(url);
+            var lst = JsonConvert.DeserializeObject<List<Peliculas>>(result);
+
+            cboPelicula.DataSource = lst;
+            cboPelicula.ValueMember = "IdPelicula";
+            cboPelicula.DisplayMember = "Titulo";
+            //cboPelicula.SelectedIndex = -1;
+            cboPelicula.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private async void CargarFormaPagoAsync()
+        {
+            string url = "https://localhost:7246/Formas%20de%20Pago";
+            var result = await ClienteSingleton.GetInstance().GetAsync(url);
+            var lst = JsonConvert.DeserializeObject<List<Forma_de_pagos>>(result);
+
+            cboFormaPago.DataSource = lst;
+            cboFormaPago.ValueMember = "IdPago";
+            cboFormaPago.DisplayMember = "FormaPago";
+            cboFormaPago.SelectedIndex = -1;
+            cboFormaPago.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private async void CargarTipoEntradaAsync()
+        {
+            string url = "https://localhost:7246/Tipo%20De%20Entradas";
+            var result = await ClienteSingleton.GetInstance().GetAsync(url);
+            var lst = JsonConvert.DeserializeObject<List<Tipo_Entrada>>(result);
+
+            cboTipoEntrada.DataSource = lst;
+            cboTipoEntrada.ValueMember = "IdEntrada";
+            cboTipoEntrada.DisplayMember = "TipoEntrada";
+            cboTipoEntrada.SelectedIndex = -1;
+            cboTipoEntrada.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -60,6 +128,19 @@ namespace FrontEnd1.Forms
             {
                 return;
             }
+        }
+
+        private async void cboPelicula_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboPelicula.SelectedIndex != -1)
+            {
+                cboFunciones.Enabled = true;
+                CargarFuncionesAsync();
+            }
+        }
+
+        private async void cboFunciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -87,7 +87,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(235, 182);
+            label2.Location = new Point(234, 182);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(103, 25);
@@ -100,7 +100,7 @@
             lblEdad.AutoSize = true;
             lblEdad.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblEdad.ForeColor = Color.White;
-            lblEdad.Location = new Point(258, 220);
+            lblEdad.Location = new Point(257, 220);
             lblEdad.Margin = new Padding(4, 0, 4, 0);
             lblEdad.Name = "lblEdad";
             lblEdad.Size = new Size(80, 25);
@@ -255,7 +255,7 @@
             lblEstadoPelicula.AutoSize = true;
             lblEstadoPelicula.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblEstadoPelicula.ForeColor = Color.White;
-            lblEstadoPelicula.Location = new Point(239, 266);
+            lblEstadoPelicula.Location = new Point(238, 266);
             lblEstadoPelicula.Margin = new Padding(4, 0, 4, 0);
             lblEstadoPelicula.Name = "lblEstadoPelicula";
             lblEstadoPelicula.Size = new Size(99, 25);

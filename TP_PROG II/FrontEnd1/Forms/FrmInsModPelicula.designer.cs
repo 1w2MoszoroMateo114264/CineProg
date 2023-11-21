@@ -83,7 +83,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(230, 216);
+            label2.Location = new Point(233, 216);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(103, 25);
@@ -118,7 +118,7 @@
             lblClasificacion.AutoSize = true;
             lblClasificacion.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblClasificacion.ForeColor = Color.White;
-            lblClasificacion.Location = new Point(162, 255);
+            lblClasificacion.Location = new Point(175, 255);
             lblClasificacion.Margin = new Padding(4, 0, 4, 0);
             lblClasificacion.Name = "lblClasificacion";
             lblClasificacion.Size = new Size(161, 25);
@@ -141,7 +141,7 @@
             lblDuracion.AutoSize = true;
             lblDuracion.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblDuracion.ForeColor = Color.White;
-            lblDuracion.Location = new Point(210, 297);
+            lblDuracion.Location = new Point(216, 297);
             lblDuracion.Margin = new Padding(4, 0, 4, 0);
             lblDuracion.Name = "lblDuracion";
             lblDuracion.Size = new Size(120, 25);
@@ -164,7 +164,7 @@
             lblDescripcion.AutoSize = true;
             lblDescripcion.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblDescripcion.ForeColor = Color.White;
-            lblDescripcion.Location = new Point(175, 337);
+            lblDescripcion.Location = new Point(186, 337);
             lblDescripcion.Margin = new Padding(4, 0, 4, 0);
             lblDescripcion.Name = "lblDescripcion";
             lblDescripcion.Size = new Size(150, 25);

@@ -57,6 +57,10 @@ namespace BackEnd.Dominio
 				
         }
 
+        public override string ToString()
+        {
+			return Dia.ToString("dd/MM/yyyy") + " " + Hora;
+        }
 
     }
 }

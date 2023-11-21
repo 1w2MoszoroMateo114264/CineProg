@@ -15,6 +15,7 @@ namespace BackEnd.Datos.Interfaz
         List<Peliculas> GetPeliculasFiltradas(List<Parametro> lstFiltros);
         List<Edades> GetEdades();
         List<Genero_Pelis> GetGenero_Pelis();
+        List<Peliculas> GetPeliculas();
 
 
     }

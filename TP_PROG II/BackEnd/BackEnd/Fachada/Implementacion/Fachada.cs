@@ -45,6 +45,11 @@ namespace BackEnd.Fachada.Implementacion
         {
             return pDao.GetGenero_Pelis();
         }
+  
+        public List<Peliculas> ObtenerPeliculas()
+        {
+            return pDao.GetPeliculas();
+        }
         public List<Peliculas> ObtenerPeliculasFiltradas(List<Parametro> lstFiltros)
         {
             return pDao.GetPeliculasFiltradas(lstFiltros);
@@ -54,7 +59,10 @@ namespace BackEnd.Fachada.Implementacion
         {
             return fDao.GetButacas();
         }
-
+        public List<Peliculas> ObtenerPeliculasDisponibles()
+        {
+            return fDao.GetPeliculasDisponibles();
+        }
         public List<Forma_de_pagos> ObtenerFormasPago()
         {
             return fDao.GetFormasPago();
@@ -65,9 +73,9 @@ namespace BackEnd.Fachada.Implementacion
             return fDao.GetFunciones();
         }
 
-        public List<Peliculas> ObtenerPeliculas()
+        public List<Peliculas> sp_consultar_peliculas()
         {
-            return fDao.GetPeliculas();
+            return fDao.GetPeliculasDisponibles();
         }
 
         public List<Salas> ObtenerSalas()
@@ -95,5 +103,6 @@ namespace BackEnd.Fachada.Implementacion
         {
             return HelperDao.ObtenerInstancia().LoginCheck("SP_LOGIN_CHECK", user, pass);
         }
+
     }
 }

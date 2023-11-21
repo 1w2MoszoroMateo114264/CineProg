@@ -108,7 +108,7 @@ namespace FrontEnd1.Forms
 
         private async void CargarPeliculasAsync(string titulo , string genero , string edad , string estado)
         {
-            string url = string.Format("https://localhost:7246/Obtener%20Peliculas%20Filtradas", titulo, genero, edad, estado);
+            string url = string.Format("https://localhost:7246/Obtener%20Peliculas%20Filtradas?titulo="+ titulo + "&idGenero="+ genero + "&idEdad="+ edad + "&estado="+ estado);
             //if (string.IsNullOrEmpty(titulo)) 
             //{
             //    url = string.Format(url + "&cliente={0}", Titulo);

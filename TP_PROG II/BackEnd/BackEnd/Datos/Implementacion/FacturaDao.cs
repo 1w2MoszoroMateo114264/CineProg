@@ -157,10 +157,10 @@ namespace BackEnd.Datos.Implementacion
 
         }
 
-        public List<Peliculas> GetPeliculas()
+        public List<Peliculas> GetPeliculasDisponibles()
         {
             List<Peliculas> lPeliculas = new List<Peliculas>();
-            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_peliculas");
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_peliculas_Disponibles");
             foreach (DataRow fila in tabla.Rows)
             {
                 Peliculas oPeliculas = new Peliculas();

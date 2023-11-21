@@ -110,6 +110,32 @@ namespace BackEnd.Datos.Implementacion
             return lGernero_Pelis;
         }
 
+        public List<Peliculas> GetPeliculas()
+        {
+            List<Peliculas> lPeliculas = new List<Peliculas>();
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_peliculas");
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Peliculas oPeliculas = new Peliculas();
+                int idPelicula = int.Parse(fila["id_pelicula"].ToString());
+                string titulo = fila["titulo"].ToString();
+                int genero = int.Parse(fila["id_genero"].ToString());
+                int clasificacion = int.Parse(fila["id_edad"].ToString());
+                int duracion = int.Parse(fila["duracion"].ToString());
+                string descripcion = fila["descripcion"].ToString();
+                string estadoPelicula = fila["estado_pelicula"].ToString();
+                oPeliculas.IdPelicula = idPelicula;
+                oPeliculas.Titulo = titulo;
+                oPeliculas.IdGenero = genero;
+                oPeliculas.IdEdad = clasificacion;
+                oPeliculas.Duracion = duracion;
+                oPeliculas.Descripcion = descripcion;
+                oPeliculas.EstadoPelicula = estadoPelicula;
+                lPeliculas.Add(oPeliculas);
+            }
+            return lPeliculas;
+        }
+
         public List<Peliculas> GetPeliculasFiltradas(List<Parametro> lstFiltros)
         {
             List<Peliculas> lPeliculas = new List<Peliculas>();

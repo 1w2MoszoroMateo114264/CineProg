@@ -37,7 +37,39 @@ namespace FrontEnd1.Forms
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            if (cboClasificacion.SelectedIndex ==-1)
+            {
+                MessageBox.Show("Debe seleccionar un Clasificacion!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (cboGenero.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un Genero!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (txtTitulo.Text.Equals(String.Empty))
+            {
+                MessageBox.Show("Debe ingresar un Titulo valido!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (txtDuracion.Text == "" && int.TryParse(txtDuracion.Text, out _))
+            {
+                MessageBox.Show("Debe ingresar una duracion valida!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (txtDescripcion.Text.Equals(String.Empty))
+            {
+                MessageBox.Show("Debe seleccionar una Descripcion valida!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            foreach (var item in lstbPeliculas.Items)
+            {
+                if (item.ToString().Equals(txtTitulo.Text))
+                {
+                    MessageBox.Show("Pelicula: " + txtTitulo.Text + " ya se encuentra en la lista!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

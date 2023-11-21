@@ -34,13 +34,13 @@ namespace WebApi.Controllers
             }
         }
         // GET: api/<FacturaController>
-        [HttpGet("/Peliculas")]
+        [HttpGet("/Obtener Peliculas Disponibles")]
         public IActionResult GetPeliculas()
         {
             List<Peliculas> list = null;
             try
             {
-                list = app.ObtenerPeliculas();
+                list = app.ObtenerPeliculasDisponibles();
                 return Ok(list);
             }
             catch

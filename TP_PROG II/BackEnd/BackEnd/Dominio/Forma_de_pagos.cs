@@ -10,10 +10,12 @@ namespace BackEnd.Dominio
     {
         public int IdPago { get; set; }
         public string FormaPago { get; set; }
-        public Forma_de_pagos(int idPago, string formaPago)
+        public double Precio { get; set; }
+        public Forma_de_pagos(int idPago, string formaPago, double precio)
         {
             IdPago = idPago;
             FormaPago = formaPago;
+            Precio = precio;
         }
 
         public Forma_de_pagos()

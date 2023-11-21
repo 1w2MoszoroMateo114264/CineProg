@@ -12,7 +12,7 @@ namespace BackEnd.Datos.Interfaz
         List<Funciones> GetFunciones();
         List<Funciones> GetFuncionesFiltradas(List<Parametro> lstParametros);
         List<Forma_de_pagos> GetFormasPago();
-        List<Peliculas> GetPeliculas();
+        List<Peliculas> GetPeliculasDisponibles();
         List<Salas> GetSalas();
         List<Tipo_Entrada> GetTipoEntradas();
         List<Butacas> GetButacas();
