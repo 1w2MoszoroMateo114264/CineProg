@@ -100,12 +100,12 @@
             lblEdad.AutoSize = true;
             lblEdad.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblEdad.ForeColor = Color.White;
-            lblEdad.Location = new Point(257, 220);
+            lblEdad.Location = new Point(176, 221);
             lblEdad.Margin = new Padding(4, 0, 4, 0);
             lblEdad.Name = "lblEdad";
-            lblEdad.Size = new Size(80, 25);
+            lblEdad.Size = new Size(161, 25);
             lblEdad.TabIndex = 9;
-            lblEdad.Text = "Edad :";
+            lblEdad.Text = "Clasificacion :\r\n";
             // 
             // cboEdad
             // 
