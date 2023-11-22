@@ -83,7 +83,7 @@ namespace FrontEnd1
 
         private async Task<bool> LoginCheck(string user, string pass)
         {
-            string url = "https://localhost:44310/api/Login/LoginCheck/" + user + "/" + pass;
+            string url = "https://localhost:7246/api/Login/LoginCheck/" + user + "/" + pass;
             HttpClient cliente = new HttpClient();
             var result = await cliente.GetAsync(url);
             bool succes = true;

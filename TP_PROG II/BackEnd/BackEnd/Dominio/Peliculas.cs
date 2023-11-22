@@ -32,7 +32,7 @@ namespace BackEnd.Dominio
 
         public override string ToString()
         {
-            return Titulo;
+            return Titulo + " | " + Duracion + " min | " + Descripcion + " | " ;
         }
     }
 }

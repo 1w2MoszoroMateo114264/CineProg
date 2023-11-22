@@ -173,6 +173,7 @@ namespace BackEnd.Datos.Implementacion
                 comando.Parameters.AddWithValue("@idEdad", oPelicula.IdEdad);
                 comando.Parameters.AddWithValue("@duracion", oPelicula.Duracion);
                 comando.Parameters.AddWithValue("@desc", oPelicula.Descripcion);
+                comando.Parameters.AddWithValue("@estado", oPelicula.EstadoPelicula);
 
                 comando.ExecuteNonQuery();
                 t.Commit();

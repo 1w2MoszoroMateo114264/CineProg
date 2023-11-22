@@ -119,6 +119,24 @@ constraint fk_detalle_butaca foreign key (id_butaca) references Butacas (id_buta
 )
 go
 
+/** Object:  Table [dbo].[login]    Script Date: 18/11/2023 17:30:54 **/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[login](
+    [cod_usuario] [int] IDENTITY(1,1) NOT NULL,
+    [usuario] [varchar](20) NOT NULL,
+    [contraseña] [varchar](20) NOT NULL,
+ CONSTRAINT [cod] PRIMARY KEY CLUSTERED 
+(
+    [cod_usuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
 create trigger t_insert_Funcion
 on funciones
 for insert
@@ -146,6 +164,7 @@ INSERT INTO Sucursales (id_sucursal, barrio, nombre_sucursal) VALUES (2, 'Villa 
 INSERT INTO Generos_pelis (descripcion) VALUES ('Accion');
 INSERT INTO Generos_pelis (descripcion) VALUES ('Comedia');
 INSERT INTO Generos_pelis (descripcion) VALUES ('Ciencia Ficcion');
+INSERT INTO Generos_pelis (descripcion) VALUES ('Terror');
 
 INSERT INTO Edades (clasificacion) VALUES ('ATP');
 INSERT INTO Edades (clasificacion) VALUES ('+18');
@@ -267,24 +286,13 @@ INSERT INTO Detalle_Factura (id_detalle_factura,nro_funcion, nro_factura, id_ent
 INSERT INTO Detalle_Factura (id_detalle_factura,nro_funcion, nro_factura, id_entrada, id_butaca) VALUES (1, 5, 2, 1, 4);
 go
 
+insert into login (usuario,contraseña) values ('nacho',123)
+insert into login (usuario,contraseña) values ('mateo',4306)
+insert into login (usuario,contraseña) values ('fran','botatequeremosmucho')
+insert into login (usuario,contraseña) values ('franco',666)
+insert into login (usuario,contraseña) values ('Admin','Admin')
 
-/** Object:  Table [dbo].[login]    Script Date: 18/11/2023 17:30:54 **/
-SET ANSI_NULLS ON
-GO
 
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE TABLE [dbo].[login](
-    [cod_usuario] [int] IDENTITY(1,1) NOT NULL,
-    [usuario] [varchar](20) NOT NULL,
-    [contraseña] [varchar](20) NOT NULL,
- CONSTRAINT [cod] PRIMARY KEY CLUSTERED 
-(
-    [cod_usuario] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
 
 --SP
 create procedure [dbo].[SP_LOGIN_CHECK]
@@ -369,6 +377,13 @@ begin
 end
 go
 
+create proc sp_consultar_peliculas_Disponibles
+as
+begin
+     select * from Peliculas where estado_pelicula = 'Disponible'
+end
+go
+
 create proc sp_consultar_salas
 as
 begin
@@ -443,38 +458,21 @@ create proc sp_ModPelicula
 @idGenero int,
 @idEdad int,
 @duracion smallint,
-@desc varchar(1000)
+@desc varchar(1000),
+@estado varchar(50)
 as
 begin
-     update Peliculas set titulo = @titulo, id_genero = @idGenero, id_edad = @idEdad, duracion = @duracion, descripcion = @desc
+     update Peliculas set titulo = @titulo, id_genero = @idGenero, id_edad = @idEdad, duracion = @duracion, descripcion = @desc, estado_pelicula = @estado
 	                  where id_pelicula = @idPelicula
 end
 go
 
-create proc sp_ModEstado_Pelicula
-@idPelicula int
-as
-begin
-     declare @estadoActual varchar (50)
-	 set @estadoActual = (select estado_pelicula from Peliculas where id_pelicula = @idPelicula)
-     if @estadoActual = 'Disponible'
-	    begin
-	      update Peliculas set estado_pelicula = 'No Disponible' where id_pelicula = @idPelicula
-	    end
-	 Else if @estadoActual = 'No Disponible' 
-	    begin
-	      update Peliculas set estado_pelicula = 'Disponible' where id_pelicula = @idPelicula
-	    end
-end
-go
 
-
-exec sp_ModEstado_Pelicula @idPelicula = 1;
 go
 select * from Peliculas
 
-select * from butacaXfunciones
-select * from Butacas
-delete from Facturas	
-DBCC CHECKIDENT (Facturas, RESEED, 0)
+select * from Detalle_Factura
+select * from Facturas
+delete from Peliculas
+DBCC CHECKIDENT (Peliculas, RESEED, 4)
 go

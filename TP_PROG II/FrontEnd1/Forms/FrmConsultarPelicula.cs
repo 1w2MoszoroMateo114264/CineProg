@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
 
@@ -91,6 +92,9 @@ namespace FrontEnd1.Forms
             if (rbtNoDisponible.Checked)
             {
                 estado = Uri.EscapeDataString("No Disponible");
+                //otra forma
+                //estado = rbtNoDisponible.Checked ? "No Disponible" : string.Empty;
+                //estado = Uri.EscapeDataString(estado);
             }
             if (rbtDisponible.Checked == false && rbtNoDisponible.Checked == false)
             {
@@ -108,12 +112,8 @@ namespace FrontEnd1.Forms
 
         private async void CargarPeliculasAsync(string titulo , string genero , string edad , string estado)
         {
-            string url = string.Format("https://localhost:7246/Obtener%20Peliculas%20Filtradas?titulo="+ titulo + "&idGenero="+ genero + "&idEdad="+ edad + "&estado="+ estado);
-            //if (string.IsNullOrEmpty(titulo)) 
-            //{
-            //    url = string.Format(url + "&cliente={0}", Titulo);
+            string url = string.Format("https://localhost:7246/Obtener%20Peliculas%20Filtradas?titulo=" + titulo + "&idGenero=" + genero + "&idEdad=" + edad + "&estado=" + estado);
 
-            //}
             var result = await ClienteSingleton.GetInstance().GetAsync(url);
             var lst = JsonConvert.DeserializeObject<List<Peliculas>>(result);
             dataGridView1.Rows.Clear();

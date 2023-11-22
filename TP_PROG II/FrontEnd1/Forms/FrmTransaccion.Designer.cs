@@ -85,6 +85,7 @@
             // 
             dtpFecha.Anchor = AnchorStyles.Top;
             dtpFecha.CalendarMonthBackground = SystemColors.WindowFrame;
+            dtpFecha.Enabled = false;
             dtpFecha.Location = new Point(236, 150);
             dtpFecha.Margin = new Padding(4, 3, 4, 3);
             dtpFecha.Name = "dtpFecha";

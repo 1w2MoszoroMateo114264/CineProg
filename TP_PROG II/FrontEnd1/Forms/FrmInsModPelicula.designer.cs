@@ -46,10 +46,15 @@
             panel4 = new Panel();
             panel3 = new Panel();
             btnNuevo = new Button();
-            btnAgregar = new Button();
+            btnGrabar = new Button();
             btnEditar = new Button();
             btnCancelar = new Button();
             pictureBox2 = new PictureBox();
+            label1 = new Label();
+            rbtDisponible = new RadioButton();
+            rbtNoDisponible = new RadioButton();
+            label3 = new Label();
+            label4 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -58,7 +63,7 @@
             // txtTitulo
             // 
             txtTitulo.Anchor = AnchorStyles.Top;
-            txtTitulo.Location = new Point(357, 180);
+            txtTitulo.Location = new Point(296, 180);
             txtTitulo.Margin = new Padding(4, 3, 4, 3);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(257, 23);
@@ -70,7 +75,7 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(251, 178);
+            lblTitulo.Location = new Point(186, 178);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(85, 25);
@@ -83,7 +88,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(233, 216);
+            label2.Location = new Point(168, 216);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(103, 25);
@@ -95,7 +100,7 @@
             cboGenero.Anchor = AnchorStyles.Top;
             cboGenero.DropDownStyle = ComboBoxStyle.DropDownList;
             cboGenero.FormattingEnabled = true;
-            cboGenero.Location = new Point(357, 218);
+            cboGenero.Location = new Point(296, 218);
             cboGenero.Margin = new Padding(4, 3, 4, 3);
             cboGenero.Name = "cboGenero";
             cboGenero.Size = new Size(162, 23);
@@ -106,7 +111,7 @@
             cboClasificacion.Anchor = AnchorStyles.Top;
             cboClasificacion.DropDownStyle = ComboBoxStyle.DropDownList;
             cboClasificacion.FormattingEnabled = true;
-            cboClasificacion.Location = new Point(357, 257);
+            cboClasificacion.Location = new Point(296, 257);
             cboClasificacion.Margin = new Padding(4, 3, 4, 3);
             cboClasificacion.Name = "cboClasificacion";
             cboClasificacion.Size = new Size(162, 23);
@@ -118,7 +123,7 @@
             lblClasificacion.AutoSize = true;
             lblClasificacion.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblClasificacion.ForeColor = Color.White;
-            lblClasificacion.Location = new Point(175, 255);
+            lblClasificacion.Location = new Point(110, 255);
             lblClasificacion.Margin = new Padding(4, 0, 4, 0);
             lblClasificacion.Name = "lblClasificacion";
             lblClasificacion.Size = new Size(161, 25);
@@ -128,7 +133,7 @@
             // txtDuracion
             // 
             txtDuracion.Anchor = AnchorStyles.Top;
-            txtDuracion.Location = new Point(357, 299);
+            txtDuracion.Location = new Point(296, 299);
             txtDuracion.Margin = new Padding(4, 3, 4, 3);
             txtDuracion.Name = "txtDuracion";
             txtDuracion.Size = new Size(75, 23);
@@ -141,7 +146,7 @@
             lblDuracion.AutoSize = true;
             lblDuracion.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblDuracion.ForeColor = Color.White;
-            lblDuracion.Location = new Point(216, 297);
+            lblDuracion.Location = new Point(151, 297);
             lblDuracion.Margin = new Padding(4, 0, 4, 0);
             lblDuracion.Name = "lblDuracion";
             lblDuracion.Size = new Size(120, 25);
@@ -152,7 +157,7 @@
             // txtDescripcion
             // 
             txtDescripcion.Anchor = AnchorStyles.Top;
-            txtDescripcion.Location = new Point(357, 339);
+            txtDescripcion.Location = new Point(296, 339);
             txtDescripcion.Margin = new Padding(4, 3, 4, 3);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(353, 23);
@@ -164,7 +169,7 @@
             lblDescripcion.AutoSize = true;
             lblDescripcion.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblDescripcion.ForeColor = Color.White;
-            lblDescripcion.Location = new Point(186, 337);
+            lblDescripcion.Location = new Point(121, 337);
             lblDescripcion.Margin = new Padding(4, 0, 4, 0);
             lblDescripcion.Name = "lblDescripcion";
             lblDescripcion.Size = new Size(150, 25);
@@ -178,10 +183,10 @@
             lstbPeliculas.ForeColor = Color.White;
             lstbPeliculas.FormattingEnabled = true;
             lstbPeliculas.ItemHeight = 15;
-            lstbPeliculas.Location = new Point(783, 102);
+            lstbPeliculas.Location = new Point(736, 102);
             lstbPeliculas.Margin = new Padding(4, 3, 4, 3);
             lstbPeliculas.Name = "lstbPeliculas";
-            lstbPeliculas.Size = new Size(224, 409);
+            lstbPeliculas.Size = new Size(317, 409);
             lstbPeliculas.TabIndex = 5;
             lstbPeliculas.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -249,32 +254,33 @@
             btnNuevo.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnNuevo.ForeColor = Color.White;
             btnNuevo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNuevo.Location = new Point(219, 481);
+            btnNuevo.Location = new Point(101, 481);
             btnNuevo.Margin = new Padding(4, 3, 4, 3);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(106, 30);
             btnNuevo.TabIndex = 6;
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = false;
+            btnNuevo.Click += btnNuevo_Click;
             // 
-            // btnAgregar
+            // btnGrabar
             // 
-            btnAgregar.Anchor = AnchorStyles.Top;
-            btnAgregar.BackColor = Color.FromArgb(11, 7, 17);
-            btnAgregar.FlatAppearance.BorderSize = 0;
-            btnAgregar.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 5, 75);
-            btnAgregar.FlatStyle = FlatStyle.Flat;
-            btnAgregar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregar.ForeColor = Color.White;
-            btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(332, 481);
-            btnAgregar.Margin = new Padding(4, 3, 4, 3);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(106, 30);
-            btnAgregar.TabIndex = 7;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = false;
-            btnAgregar.Click += btnAgregar_Click;
+            btnGrabar.Anchor = AnchorStyles.Top;
+            btnGrabar.BackColor = Color.FromArgb(11, 7, 17);
+            btnGrabar.FlatAppearance.BorderSize = 0;
+            btnGrabar.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 5, 75);
+            btnGrabar.FlatStyle = FlatStyle.Flat;
+            btnGrabar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGrabar.ForeColor = Color.White;
+            btnGrabar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnGrabar.Location = new Point(447, 481);
+            btnGrabar.Margin = new Padding(4, 3, 4, 3);
+            btnGrabar.Name = "btnGrabar";
+            btnGrabar.Size = new Size(106, 30);
+            btnGrabar.TabIndex = 7;
+            btnGrabar.Text = "Grabar";
+            btnGrabar.UseVisualStyleBackColor = false;
+            btnGrabar.Click += btnAgregar_Click;
             // 
             // btnEditar
             // 
@@ -286,13 +292,14 @@
             btnEditar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnEditar.ForeColor = Color.White;
             btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditar.Location = new Point(509, 481);
+            btnEditar.Location = new Point(215, 481);
             btnEditar.Margin = new Padding(4, 3, 4, 3);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(106, 30);
             btnEditar.TabIndex = 8;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnCancelar
             // 
@@ -304,7 +311,7 @@
             btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.ForeColor = Color.White;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(622, 481);
+            btnCancelar.Location = new Point(561, 481);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(106, 30);
@@ -325,15 +332,86 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(172, 410);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(99, 25);
+            label1.TabIndex = 38;
+            label1.Text = "Estado :";
+            // 
+            // rbtDisponible
+            // 
+            rbtDisponible.AutoSize = true;
+            rbtDisponible.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            rbtDisponible.ForeColor = SystemColors.Control;
+            rbtDisponible.Location = new Point(296, 404);
+            rbtDisponible.Name = "rbtDisponible";
+            rbtDisponible.Size = new Size(145, 34);
+            rbtDisponible.TabIndex = 43;
+            rbtDisponible.TabStop = true;
+            rbtDisponible.Text = "\"Disponible\"";
+            rbtDisponible.UseVisualStyleBackColor = true;
+            // 
+            // rbtNoDisponible
+            // 
+            rbtNoDisponible.AutoSize = true;
+            rbtNoDisponible.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            rbtNoDisponible.ForeColor = SystemColors.Control;
+            rbtNoDisponible.Location = new Point(470, 404);
+            rbtNoDisponible.Name = "rbtNoDisponible";
+            rbtNoDisponible.Size = new Size(179, 34);
+            rbtNoDisponible.TabIndex = 44;
+            rbtNoDisponible.TabStop = true;
+            rbtNoDisponible.Text = "\"No Disponible\"";
+            rbtNoDisponible.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top;
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(445, 398);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(18, 50);
+            label3.TabIndex = 45;
+            label3.Text = "|\r\n|";
+            label3.Click += label3_Click;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top;
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(379, 307);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(31, 15);
+            label4.TabIndex = 46;
+            label4.Text = "Min";
+            // 
             // FrmInsModPelicula
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 30, 45);
             ClientSize = new Size(1066, 580);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(rbtNoDisponible);
+            Controls.Add(rbtDisponible);
+            Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnEditar);
-            Controls.Add(btnAgregar);
+            Controls.Add(btnGrabar);
             Controls.Add(btnNuevo);
             Controls.Add(panel3);
             Controls.Add(pictureBox2);
@@ -383,8 +461,13 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnCancelar;
+        private Label label1;
+        private RadioButton rbtDisponible;
+        private RadioButton rbtNoDisponible;
+        private Label label3;
+        private Label label4;
     }
 }
