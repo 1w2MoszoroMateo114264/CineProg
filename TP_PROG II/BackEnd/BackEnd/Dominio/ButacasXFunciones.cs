@@ -15,12 +15,12 @@ namespace BackEnd.Dominio
 			get { return nroFunciones; }
 			set { nroFunciones = value; }
 		}
-		private int nroButaca;
+		private int idButaca;
 
-		public int NroButaca
+		public int IdButaca
 		{
-			get { return nroButaca; }
-			set { nroButaca = value; }
+			get { return idButaca; }
+			set { idButaca = value; }
 		}
 
 		private string estado;
@@ -36,7 +36,7 @@ namespace BackEnd.Dominio
         }
         public ButacasXFunciones(int nroFuncion, int nroButaca, string estado)
         {
-			this.nroButaca = nroButaca;
+			this.idButaca = nroButaca;
 			this.nroFunciones= nroFuncion;
 			this.estado = estado;
         }

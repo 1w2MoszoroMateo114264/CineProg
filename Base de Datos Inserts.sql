@@ -217,6 +217,8 @@ INSERT INTO Butacas (nro_butaca, nro_sala) VALUES (7, 201);
 INSERT INTO Butacas (nro_butaca, nro_sala) VALUES (8, 201);
 INSERT INTO Butacas (nro_butaca, nro_sala) VALUES (9, 201);
 
+
+
 INSERT INTO Butacas (nro_butaca, nro_sala) VALUES (1, 202);
 INSERT INTO Butacas (nro_butaca, nro_sala) VALUES (2, 202);
 INSERT INTO Butacas (nro_butaca, nro_sala) VALUES (3, 202);
@@ -291,7 +293,7 @@ insert into login (usuario,contraseña) values ('mateo',4306)
 insert into login (usuario,contraseña) values ('fran','botatequeremosmucho')
 insert into login (usuario,contraseña) values ('franco',666)
 insert into login (usuario,contraseña) values ('Admin','Admin')
-
+go
 
 
 --SP
@@ -414,12 +416,22 @@ end
 go
 
 create proc sp_Consultar_ButacasXFunciones
+@nroFuncion int
 as
 begin
-      select * from butacaXfunciones
+      select * from butacaXfunciones where nro_funcion = @nroFuncion
 end
 go
 
+create proc sp_ModEstadoButacas
+@nroFuncion int,
+@idButaca int
+as
+begin
+    update butacaXfunciones set disponible = 'No Disponible'
+    where nro_funcion=@nroFuncion and id_butaca=@idButaca
+end
+go
 
 --sp para abm pelicula
 

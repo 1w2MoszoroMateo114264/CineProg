@@ -15,7 +15,8 @@ namespace BackEnd.Datos.Interfaz
         List<Peliculas> GetPeliculasDisponibles();
         List<Salas> GetSalas();
         List<Tipo_Entrada> GetTipoEntradas();
-        List<Butacas> GetButacas();
+        List<ButacasXFunciones> GetButacas(List<Parametro> lstParametros);
+        bool ModEstadoButaca(int nroFunc, int idButaca);
         bool crearFactura(Factura oFactura);
         bool actualizarFactura(Factura oFactura);
         List<Factura> ObtenerFacturaPorFiltros(List<Parametro> lstParametros);

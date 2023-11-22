@@ -11,8 +11,8 @@ namespace FrontEnd1
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new login());
-            //Application.Run(new FrmPrincipal());
+            //Application.Run(new login());
+            Application.Run(new FrmPrincipal());
         }
     }
 }

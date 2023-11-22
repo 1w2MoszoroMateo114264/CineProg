@@ -76,22 +76,52 @@ namespace BackEnd.Datos.Implementacion
             return resultado;
         }
 
-        public List<Butacas> GetButacas()
+        public List<ButacasXFunciones> GetButacas(List<Parametro> lstParametros)
         {
-            List<Butacas> lButacas = new List<Butacas>();
-            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_butacas");
+            List<ButacasXFunciones> lButacas = new List<ButacasXFunciones>();
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_butacas",lstParametros);
             foreach (DataRow fila in tabla.Rows)
             {
-                Butacas oButacas = new Butacas();
-                int IdButaca = int.Parse(fila["id_butaca"].ToString());
-                int NroButaca = int.Parse(fila["nro_butaca"].ToString());
-                int NroSala = int.Parse(fila["nro_sala"].ToString());
-                oButacas.IdButaca = IdButaca;
-                oButacas.NroButaca = NroButaca;
-                oButacas.NroSala = NroSala;
+                ButacasXFunciones oButacas = new ButacasXFunciones();
+                oButacas.NroFunciones = int.Parse(fila[0].ToString());
+                oButacas.IdButaca = int.Parse(fila[1].ToString());
+                oButacas.Estado = fila[2].ToString();
+
                 lButacas.Add(oButacas);
             }
             return lButacas;
+        }
+        public bool ModEstadoButaca(int nroFunc, int idButaca)
+        {
+            bool resultado = true;
+            SqlConnection conexion = HelperDao.ObtenerInstancia().ObtenerConexion();
+            SqlTransaction t = null;
+            try
+            {
+                conexion.Open();
+                t = conexion.BeginTransaction();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.Transaction = t;
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandText = "sp_ModEstadoButacas";
+                comando.Parameters.AddWithValue("@nroFuncion", nroFunc);
+                comando.Parameters.AddWithValue("@idButaca", idButaca);
+
+                comando.ExecuteNonQuery();
+            }
+            catch
+            {
+                if (t != null)
+                    t.Rollback();
+                resultado = false;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                    conexion.Close();
+            }
+            return resultado;
         }
 
         public List<Forma_de_pagos> GetFormasPago()
