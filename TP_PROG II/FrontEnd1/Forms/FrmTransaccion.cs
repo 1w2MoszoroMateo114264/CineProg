@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace FrontEnd1.Forms
 {
@@ -19,6 +20,7 @@ namespace FrontEnd1.Forms
         private List<Tipo_Entrada> lstTiposEntradas;
         private string NrPelicula;
         private Factura nuevo;
+
         public Transaccion()
         {
             InitializeComponent();
@@ -33,9 +35,11 @@ namespace FrontEnd1.Forms
             CargarTipoEntradaAsync();
             CargarFormaPagoAsync();
             CargarPeliculasAsync();
+            CalcularyMostrarTotal();
         }
 
-        private async void CargarFuncionesAsync()
+
+        private async Task CargarFuncionesAsync()
         {
             string NrPelicula = cboPelicula.SelectedValue?.ToString();
 
@@ -59,7 +63,7 @@ namespace FrontEnd1.Forms
             }
         }
 
-        private async void CargarPeliculasAsync()
+        private async Task CargarPeliculasAsync()
         {
             string url = "https://localhost:7246/Obtener%20Peliculas%20Disponibles";
             var result = await ClienteSingleton.GetInstance().GetAsync(url);
@@ -72,7 +76,7 @@ namespace FrontEnd1.Forms
             cboPelicula.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        private async void CargarFormaPagoAsync()
+        private async Task CargarFormaPagoAsync()
         {
             string url = "https://localhost:7246/Formas%20de%20Pago";
             var result = await ClienteSingleton.GetInstance().GetAsync(url);
@@ -85,7 +89,7 @@ namespace FrontEnd1.Forms
             cboFormaPago.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        private async void CargarTipoEntradaAsync()
+        private async Task CargarTipoEntradaAsync()
         {
             string url = "https://localhost:7246/Tipo%20De%20Entradas";
             var result = await ClienteSingleton.GetInstance().GetAsync(url);
@@ -163,17 +167,8 @@ namespace FrontEnd1.Forms
             string nroFuncion = cboFunciones.SelectedValue.ToString();
             List<ButacasXFunciones> lstDisp = new List<ButacasXFunciones>();
             List<ButacasXFunciones> lstNoDisp = new List<ButacasXFunciones>();
-            List<CheckBox> listachk = new List<CheckBox>();
-            listachk.Clear();
-            listachk.Add(butaca1);
-            listachk.Add(butaca2);
-            listachk.Add(butaca3);
-            listachk.Add(butaca4);
-            listachk.Add(butaca5);
-            listachk.Add(butaca6);
-            listachk.Add(butaca7);
-            listachk.Add(butaca8);
-            listachk.Add(butaca9);
+            List<CheckBox> listachk = CargarListaButacas();
+
 
             int index = 1;
 
@@ -218,6 +213,22 @@ namespace FrontEnd1.Forms
 
         }
 
+        private List<CheckBox> CargarListaButacas()
+        {
+            List<CheckBox> listachk = new List<CheckBox>();
+            listachk.Clear();
+            listachk.Add(butaca1);
+            listachk.Add(butaca2);
+            listachk.Add(butaca3);
+            listachk.Add(butaca4);
+            listachk.Add(butaca5);
+            listachk.Add(butaca6);
+            listachk.Add(butaca7);
+            listachk.Add(butaca8);
+            listachk.Add(butaca9);
+            return listachk;
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             int nroSala = 0;
@@ -236,7 +247,6 @@ namespace FrontEnd1.Forms
                 if (f.NroFuncion == int.Parse(cboFunciones.SelectedValue.ToString()))
                 {
                     nroSala = f.NroSala;
-                    funcionEncontrada = true;
                     break; // Salir del bucle una vez encontrada la función
                 }
             }
@@ -248,24 +258,8 @@ namespace FrontEnd1.Forms
                 if (t.IdEntrada == int.Parse(cboTipoEntrada.SelectedValue.ToString()))
                 {
                     precio = t.Precio;
-                    tipoEntradaEncontrado = true;
                     break; // Salir del bucle una vez encontrado el tipo de entrada
                 }
-            }
-
-
-
-            // Validar que se haya encontrado la función y el tipo de entrada
-            if (!funcionEncontrada)
-            {
-                MessageBox.Show("Debe seleccionar una función.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!tipoEntradaEncontrado)
-            {
-                MessageBox.Show("Debe seleccionar un tipo de entrada.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
 
             // Crear el detalle
@@ -303,6 +297,7 @@ namespace FrontEnd1.Forms
                     return;
                 }
             }
+            CalcularyMostrarTotal();
 
             nuevo.AgregarDetalle(detalle);
             dataGridView.Rows.Add(new object[] { detalle.Funcion, nroSala, detalle.Butaca, cboTipoEntrada.Text, precio, "Quitar" });
@@ -321,12 +316,6 @@ namespace FrontEnd1.Forms
                 MessageBox.Show("Debe seleccionar un tipo de entrada.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (string.IsNullOrEmpty(txtDni.Text) || !int.TryParse(txtDni.Text, out _))
-            {
-                MessageBox.Show("El campo DNI no debe estar vacío y solo debe contener números.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-
-            }
             if (cboFunciones.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar una función.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -338,6 +327,69 @@ namespace FrontEnd1.Forms
                 return false;
             }
 
+            return true;
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView.CurrentCell.ColumnIndex == 5)
+            {
+                List<CheckBox> listachk = CargarListaButacas();
+                for (int i = 1; i <= 9; i++)
+                {
+                    CheckBox checkBox = Controls.Find($"butaca{i}", true).FirstOrDefault() as CheckBox;
+                    if (checkBox != null && checkBox.Checked && checkBox.Enabled == false)
+                    {
+                        checkBox.Enabled = true;
+                        checkBox.Checked = false;
+                        checkBox.BackColor = Color.Green;
+                        break;
+                    }
+                }
+                CalcularyMostrarTotal();
+                nuevo.QuitarDetalle(dataGridView.CurrentRow.Index);
+                dataGridView.Rows.Remove(dataGridView.CurrentRow);
+                //CalcularTotal();
+            }
+        }
+        private void CalcularyMostrarTotal()
+        {
+            double total = 0;
+            foreach (DataGridViewRow precio in dataGridView.Rows)
+            {
+                total = total + Convert.ToDouble(precio.Cells["ColPrecio"].Value);
+
+            }
+            lblMonto.Text = total.ToString();
+        }
+
+        private async void btnAceptar_Click(object sender, EventArgs e)
+        {
+            ValidarFactura();
+            await GenerarFactura();
+        }
+
+        private async Task GenerarFactura()
+        {
+            nuevo.IdFormaPago = int.Parse(cboFormaPago.SelectedValue.ToString());
+            nuevo.Fecha = DateTime.Parse(dtpFecha.Value.ToString("dd/MM/yyyy"));
+            nuevo.DniCliente = int.Parse(txtDni.Text.ToString());
+            nuevo.Total = int.Parse(lblMonto.text);
+            string bodyContent = JsonConvert.SerializeObject(nuevo);
+        }
+
+        private bool ValidarFactura()
+        {
+            if (string.IsNullOrEmpty(txtDni.Text) || !int.TryParse(txtDni.Text, out _))
+            {
+                MessageBox.Show("El campo DNI no debe estar vacío y solo debe contener números.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (dataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("Debe ingresar al menos una Butaca!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
             return true;
         }
     }

@@ -35,6 +35,7 @@ namespace BackEnd.Datos.Implementacion
                 comando.Parameters.AddWithValue("@fecha", oFactura.Fecha);
                 comando.Parameters.AddWithValue("@id_forma_de_pago", oFactura.IdFormaPago);
                 comando.Parameters.AddWithValue("@dni_cliente", oFactura.DniCliente);
+                comando.Parameters.AddWithValue("@total", oFactura.Total);
 
                 SqlParameter parametro = new SqlParameter();
                 parametro.ParameterName = "@nro_Factura";

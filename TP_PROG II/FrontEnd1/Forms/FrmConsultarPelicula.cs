@@ -38,7 +38,7 @@ namespace FrontEnd1.Forms
             CargarCategoriasAsync();
         }
 
-        private async void CargarCategoriasAsync()
+        private async Task CargarCategoriasAsync()
         {
             string url = "https://localhost:7246/Obtener%20Clasificaciones";
             var result = await ClienteSingleton.GetInstance().GetAsync(url);
@@ -50,7 +50,7 @@ namespace FrontEnd1.Forms
             cboEdad.SelectedIndex = -1;
         }
 
-        private async void CargarGenerosAsync()
+        private async Task CargarGenerosAsync()
         {
             string url = "https://localhost:7246/Obtener%20Generos";
             var result = await ClienteSingleton.GetInstance().GetAsync(url);

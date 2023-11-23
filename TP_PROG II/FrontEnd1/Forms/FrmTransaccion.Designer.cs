@@ -57,29 +57,33 @@
             panel5 = new Panel();
             lblTotal = new Label();
             panel6 = new Panel();
+            lblMonto = new Label();
             cboPelicula = new ComboBox();
             label9 = new Label();
             panel8 = new Panel();
             label11 = new Label();
             dataGridView = new DataGridView();
-            btnAceptar = new Button();
-            btnCancelar = new Button();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
-            btnAgregar = new Button();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             ColNroSala = new DataGridViewTextBoxColumn();
             colButaca = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             ColPrecio = new DataGridViewTextBoxColumn();
-            dataGridViewButtonColumn1 = new DataGridViewButtonColumn();
+            colQuitar = new DataGridViewButtonColumn();
+            btnAceptar = new Button();
+            btnCancelar = new Button();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            btnAgregar = new Button();
+            pictureBox3 = new PictureBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            panel6.SuspendLayout();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // dtpFecha
@@ -396,12 +400,27 @@
             // 
             panel6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             panel6.BackColor = Color.FromArgb(11, 7, 17);
+            panel6.Controls.Add(lblMonto);
             panel6.ForeColor = Color.Transparent;
             panel6.Location = new Point(810, 527);
             panel6.Margin = new Padding(4, 3, 4, 3);
             panel6.Name = "panel6";
             panel6.Size = new Size(257, 55);
             panel6.TabIndex = 26;
+            // 
+            // lblMonto
+            // 
+            lblMonto.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblMonto.AutoSize = true;
+            lblMonto.BackColor = Color.FromArgb(11, 7, 17);
+            lblMonto.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMonto.ForeColor = Color.White;
+            lblMonto.Location = new Point(124, 13);
+            lblMonto.Margin = new Padding(4, 0, 4, 0);
+            lblMonto.Name = "lblMonto";
+            lblMonto.Size = new Size(58, 25);
+            lblMonto.TabIndex = 26;
+            lblMonto.Text = "0.00";
             // 
             // cboPelicula
             // 
@@ -458,7 +477,7 @@
             dataGridView.Anchor = AnchorStyles.Top;
             dataGridView.BackgroundColor = Color.FromArgb(11, 7, 17);
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, ColNroSala, colButaca, dataGridViewTextBoxColumn2, ColPrecio, dataGridViewButtonColumn1 });
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, ColNroSala, colButaca, dataGridViewTextBoxColumn2, ColPrecio, colQuitar });
             dataGridView.GridColor = SystemColors.ActiveCaptionText;
             dataGridView.Location = new Point(118, 317);
             dataGridView.Margin = new Padding(4, 3, 4, 3);
@@ -466,6 +485,46 @@
             dataGridView.ReadOnly = true;
             dataGridView.Size = new Size(635, 198);
             dataGridView.TabIndex = 16;
+            dataGridView.CellContentClick += dataGridView_CellContentClick;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.HeaderText = "Funcion";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // ColNroSala
+            // 
+            ColNroSala.HeaderText = "Sala";
+            ColNroSala.Name = "ColNroSala";
+            ColNroSala.ReadOnly = true;
+            ColNroSala.Width = 80;
+            // 
+            // colButaca
+            // 
+            colButaca.HeaderText = "Butaca";
+            colButaca.Name = "colButaca";
+            colButaca.ReadOnly = true;
+            colButaca.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.HeaderText = "Tipo de entrada";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // ColPrecio
+            // 
+            ColPrecio.HeaderText = "Precio";
+            ColPrecio.Name = "ColPrecio";
+            ColPrecio.ReadOnly = true;
+            // 
+            // colQuitar
+            // 
+            colQuitar.HeaderText = "Quitar";
+            colQuitar.Name = "colQuitar";
+            colQuitar.ReadOnly = true;
+            colQuitar.Text = "Quitar";
             // 
             // btnAceptar
             // 
@@ -484,6 +543,7 @@
             btnAceptar.TabIndex = 17;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
@@ -548,44 +608,17 @@
             btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += btnAgregar_Click;
             // 
-            // dataGridViewTextBoxColumn1
+            // pictureBox3
             // 
-            dataGridViewTextBoxColumn1.HeaderText = "Funcion";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // ColNroSala
-            // 
-            ColNroSala.HeaderText = "Sala";
-            ColNroSala.Name = "ColNroSala";
-            ColNroSala.ReadOnly = true;
-            ColNroSala.Width = 80;
-            // 
-            // colButaca
-            // 
-            colButaca.HeaderText = "Butaca";
-            colButaca.Name = "colButaca";
-            colButaca.ReadOnly = true;
-            colButaca.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "Tipo de entrada";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // ColPrecio
-            // 
-            ColPrecio.HeaderText = "Precio";
-            ColPrecio.Name = "ColPrecio";
-            ColPrecio.ReadOnly = true;
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            dataGridViewButtonColumn1.HeaderText = "Quitar";
-            dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            dataGridViewButtonColumn1.ReadOnly = true;
-            dataGridViewButtonColumn1.Text = "Quitar";
+            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(810, 455);
+            pictureBox3.Margin = new Padding(4, 3, 4, 3);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(257, 66);
+            pictureBox3.TabIndex = 36;
+            pictureBox3.TabStop = false;
             // 
             // Transaccion
             // 
@@ -593,6 +626,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 30, 45);
             ClientSize = new Size(1066, 580);
+            Controls.Add(pictureBox3);
             Controls.Add(btnAgregar);
             Controls.Add(pictureBox2);
             Controls.Add(btnCancelar);
@@ -637,11 +671,14 @@
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -691,6 +728,9 @@
         private DataGridViewTextBoxColumn colButaca;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn ColPrecio;
-        private DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private DataGridViewButtonColumn colQuitar;
+        private PictureBox pictureBox3;
+        private Label monto;
+        private Label lblMonto;
     }
 }

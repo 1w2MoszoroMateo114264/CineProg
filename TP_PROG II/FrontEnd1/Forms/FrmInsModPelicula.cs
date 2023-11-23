@@ -225,7 +225,7 @@ namespace FrontEnd1.Forms
             CargarPeliculasEnListBox();
         }
 
-        private async void CargarPeliculasEnListBox()
+        private async Task CargarPeliculasEnListBox()
         {
             try
             {
@@ -270,7 +270,7 @@ namespace FrontEnd1.Forms
             btnCancelar.Enabled = !v;
         }
 
-        private async void CargarGenerosAsync()
+        private async Task CargarGenerosAsync()
         {
             string url = "https://localhost:7246/Obtener%20Generos";
             var result = await ClienteSingleton.GetInstance().GetAsync(url);
@@ -282,7 +282,7 @@ namespace FrontEnd1.Forms
             cboGenero.SelectedIndex = -1;
         }
 
-        private async void CargarCategoriasAsync()
+        private async Task CargarCategoriasAsync()
         {
             string url = "https://localhost:7246/Obtener%20Clasificaciones";
             var result = await ClienteSingleton.GetInstance().GetAsync(url);

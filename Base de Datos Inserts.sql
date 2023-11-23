@@ -92,6 +92,7 @@ nro_factura int identity(1,1),
 fecha datetime, 
 id_forma_de_pago int,
 dni_cliente int,
+total money,
 CONSTRAINT pk_nro_factura PRIMARY KEY (nro_factura),
 CONSTRAINT fk_id_forma_de_pago FOREIGN KEY (id_forma_de_pago) REFERENCES Formas_de_pago (id_forma_de_pago),
 )
@@ -279,8 +280,8 @@ INSERT INTO Formas_de_pago (id_forma_de_pago, descripcion) VALUES (1, 'Targeta d
 INSERT INTO Formas_de_pago (id_forma_de_pago, descripcion) VALUES (2, 'Efectivo');
 
 
-INSERT INTO Facturas (fecha, id_forma_de_pago, dni_cliente) VALUES ('2023-11-21', 1, 123456789);
-INSERT INTO Facturas (fecha, id_forma_de_pago, dni_cliente) VALUES ('2023-11-22', 2, 987654321);
+INSERT INTO Facturas(fecha, id_forma_de_pago, dni_cliente, total) VALUES ('2023-11-21', 1, 123456789, 2500);
+INSERT INTO Facturas(fecha, id_forma_de_pago, dni_cliente, total) VALUES ('2023-11-22', 2, 987654321, 1500);
 
 
 INSERT INTO Detalle_Factura (id_detalle_factura,nro_funcion, nro_factura, id_entrada, id_butaca) VALUES (1, 1, 1, 1, 1);
@@ -311,11 +312,12 @@ create proc sp_InsertarMaestro
     @fecha datetime, 
     @id_forma_de_pago int,
     @dni_cliente int,
+	@total money,
 	@nro_Factura int OUTPUT
 AS
 BEGIN
-	INSERT INTO Facturas (fecha,id_forma_de_pago,dni_cliente)
-    VALUES (GETDATE(), @id_forma_de_pago, @dni_cliente);
+	INSERT INTO Facturas (fecha,id_forma_de_pago,dni_cliente, total)
+    VALUES (GETDATE(), @id_forma_de_pago, @dni_cliente,@total);
     --Asignamos el valor del último ID autogenerado (obtenido --  
     --mediante la función SCOPE_IDENTITY() de SQLServer)	
     SET @nro_Factura = SCOPE_IDENTITY();
@@ -335,12 +337,12 @@ BEGIN
 END
 go
 
-create proc sp_consultar_butacas
-as
-begin
-     select * from Butacas
-end
-go
+--create proc sp_consultar_butacas
+--as
+--begin
+--     select * from Butacas
+--end
+--go
 
 create proc sp_consultar_edades
 as
@@ -393,13 +395,6 @@ begin
 end
 go
 
-create proc sp_consultar_sucursales
-as
-begin
-     select * from Sucursales
-end
-go
-
 create proc sp_consultar_tipo_entradas
 as
 begin
@@ -431,6 +426,19 @@ begin
     update butacaXfunciones set disponible = 'No Disponible'
     where nro_funcion=@nroFuncion and id_butaca=@idButaca
 end
+go
+
+CREATE PROCEDURE sp_GeneroMasVisto
+AS
+BEGIN
+    SELECT top 1 gp.descripcion AS GeneroMasVisto, COUNT(*) AS TotalVentas
+    FROM Detalle_Factura df
+    JOIN Funciones f ON df.nro_funcion = f.nro_funcion
+    JOIN Peliculas p ON f.id_pelicula = p.id_pelicula
+    JOIN Generos_pelis gp ON p.id_genero = gp.id_genero
+    GROUP BY gp.descripcion
+    ORDER BY 2 DESC;
+END;
 go
 
 --sp para abm pelicula
@@ -480,7 +488,7 @@ end
 go
 
 
-go
+
 select * from Detalle_Factura
 
 select * from Detalle_Factura
@@ -488,7 +496,3 @@ select * from Facturas
 delete from Peliculas
 DBCC CHECKIDENT (Peliculas, RESEED, 4)
 go
-
-
-update Persona set nombre = (select nombre from Persona where id = 1)
-               where id = 2
