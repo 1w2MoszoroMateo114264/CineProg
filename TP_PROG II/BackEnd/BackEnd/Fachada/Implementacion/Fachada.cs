@@ -55,9 +55,13 @@ namespace BackEnd.Fachada.Implementacion
             return pDao.GetPeliculasFiltradas(lstFiltros);
         }
         //-----------------FACTURAS----------------------//
-        public List<Butacas> ObtenerButacas()
+        public List<ButacasXFunciones> ObtenerButacas(List<Parametro> lstParametros)
         {
-            return fDao.GetButacas();
+            return fDao.GetButacas(lstParametros);
+        }
+        public bool ModEstadoButaca(int nroFunc, int idButaca)
+        {
+            return fDao.ModEstadoButaca(nroFunc, idButaca);
         }
         public List<Peliculas> ObtenerPeliculasDisponibles()
         {
@@ -103,6 +107,7 @@ namespace BackEnd.Fachada.Implementacion
         {
             return HelperDao.ObtenerInstancia().LoginCheck("SP_LOGIN_CHECK", user, pass);
         }
+
 
     }
 }

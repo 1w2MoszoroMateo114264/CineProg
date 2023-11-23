@@ -53,7 +53,7 @@ namespace BackEnd.Datos.Implementacion
                     cmdDetalle = new SqlCommand("sp_Insertardetalle", conexion,t);
                     cmdDetalle.CommandType = CommandType.StoredProcedure;
                     cmdDetalle.Parameters.AddWithValue("@nro_detalleFactura", detalleNro);
-                    cmdDetalle.Parameters.AddWithValue("@nro_funcion", df.Funciones);
+                    cmdDetalle.Parameters.AddWithValue("@nro_funcion", df.Funcion);
                     cmdDetalle.Parameters.AddWithValue("@nro_Factura", FacturaNro);
                     cmdDetalle.Parameters.AddWithValue("@id_entrada", df.TipoEntrada);
                     cmdDetalle.Parameters.AddWithValue("@id_butaca", df.Butaca);
@@ -79,7 +79,7 @@ namespace BackEnd.Datos.Implementacion
         public List<ButacasXFunciones> GetButacas(List<Parametro> lstParametros)
         {
             List<ButacasXFunciones> lButacas = new List<ButacasXFunciones>();
-            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_consultar_butacas",lstParametros);
+            DataTable tabla = HelperDao.ObtenerInstancia().Consultar("sp_Consultar_ButacasXFunciones", lstParametros);
             foreach (DataRow fila in tabla.Rows)
             {
                 ButacasXFunciones oButacas = new ButacasXFunciones();
@@ -100,15 +100,13 @@ namespace BackEnd.Datos.Implementacion
             {
                 conexion.Open();
                 t = conexion.BeginTransaction();
-                SqlCommand comando = new SqlCommand();
-                comando.Connection = conexion;
-                comando.Transaction = t;
+                SqlCommand comando = new SqlCommand("sp_ModEstadoButacas", conexion, t);
                 comando.CommandType = CommandType.StoredProcedure;
-                comando.CommandText = "sp_ModEstadoButacas";
+
                 comando.Parameters.AddWithValue("@nroFuncion", nroFunc);
                 comando.Parameters.AddWithValue("@idButaca", idButaca);
-
                 comando.ExecuteNonQuery();
+                t.Commit();
             }
             catch
             {

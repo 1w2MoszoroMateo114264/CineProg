@@ -62,17 +62,17 @@
             panel8 = new Panel();
             label11 = new Label();
             dataGridView = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            ColNroSala = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            ColPrecio = new DataGridViewTextBoxColumn();
-            dataGridViewButtonColumn1 = new DataGridViewButtonColumn();
             btnAceptar = new Button();
             btnCancelar = new Button();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             btnAgregar = new Button();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            ColNroSala = new DataGridViewTextBoxColumn();
+            colButaca = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            ColPrecio = new DataGridViewTextBoxColumn();
+            dataGridViewButtonColumn1 = new DataGridViewButtonColumn();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -458,7 +458,7 @@
             dataGridView.Anchor = AnchorStyles.Top;
             dataGridView.BackgroundColor = Color.FromArgb(11, 7, 17);
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, ColNroSala, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn2, ColPrecio, dataGridViewButtonColumn1 });
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, ColNroSala, colButaca, dataGridViewTextBoxColumn2, ColPrecio, dataGridViewButtonColumn1 });
             dataGridView.GridColor = SystemColors.ActiveCaptionText;
             dataGridView.Location = new Point(118, 317);
             dataGridView.Margin = new Padding(4, 3, 4, 3);
@@ -466,45 +466,6 @@
             dataGridView.ReadOnly = true;
             dataGridView.Size = new Size(635, 198);
             dataGridView.TabIndex = 16;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "Funcion";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // ColNroSala
-            // 
-            ColNroSala.HeaderText = "Sala";
-            ColNroSala.Name = "ColNroSala";
-            ColNroSala.ReadOnly = true;
-            ColNroSala.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.HeaderText = "Butaca";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            dataGridViewTextBoxColumn3.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "Tipo de entrada";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // ColPrecio
-            // 
-            ColPrecio.HeaderText = "Precio";
-            ColPrecio.Name = "ColPrecio";
-            ColPrecio.ReadOnly = true;
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            dataGridViewButtonColumn1.HeaderText = "Quitar";
-            dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            dataGridViewButtonColumn1.ReadOnly = true;
-            dataGridViewButtonColumn1.Text = "Quitar";
             // 
             // btnAceptar
             // 
@@ -585,6 +546,46 @@
             btnAgregar.TabIndex = 15;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.HeaderText = "Funcion";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // ColNroSala
+            // 
+            ColNroSala.HeaderText = "Sala";
+            ColNroSala.Name = "ColNroSala";
+            ColNroSala.ReadOnly = true;
+            ColNroSala.Width = 80;
+            // 
+            // colButaca
+            // 
+            colButaca.HeaderText = "Butaca";
+            colButaca.Name = "colButaca";
+            colButaca.ReadOnly = true;
+            colButaca.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.HeaderText = "Tipo de entrada";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // ColPrecio
+            // 
+            ColPrecio.HeaderText = "Precio";
+            ColPrecio.Name = "ColPrecio";
+            ColPrecio.ReadOnly = true;
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            dataGridViewButtonColumn1.HeaderText = "Quitar";
+            dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            dataGridViewButtonColumn1.ReadOnly = true;
+            dataGridViewButtonColumn1.Text = "Quitar";
             // 
             // Transaccion
             // 
@@ -687,7 +688,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn ColNroSala;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn colButaca;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn ColPrecio;
         private DataGridViewButtonColumn dataGridViewButtonColumn1;

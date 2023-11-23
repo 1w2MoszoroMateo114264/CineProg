@@ -95,6 +95,26 @@ namespace WebApi.Controllers
                 return StatusCode(500, "Error Interno! Intentar más Tarde.");
             }
         }
+
+        // GET api/<FacturaController>/5
+        [HttpGet("/Butacas S/Funcion")]
+        public IActionResult GetButacasXfuncion(int nroFuncion)
+        {
+            List<Parametro> lstFiltro = new List<Parametro>();
+            lstFiltro.Add(new Parametro("@nroFuncion", nroFuncion));
+            List<ButacasXFunciones> list = null;
+            try
+            {
+                list = app.ObtenerButacas(lstFiltro);
+                return Ok(list);
+            }
+            catch
+            {
+                return StatusCode(500, "Error Interno! Intentar más Tarde.");
+            }
+        }
+
+
         // POST api/<FacturaController>
         [HttpPost("/Insertar Factura")]
         public IActionResult SaveFactura(Factura oFactura)
@@ -115,9 +135,24 @@ namespace WebApi.Controllers
         }
 
         // PUT api/<FacturaController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("/Modificar Estado de Butaca")]
+        public IActionResult CambiarEstadoButacas(int nroFuncion, int idButaca)
         {
+            try
+            {
+                if (app.ModEstadoButaca(nroFuncion, idButaca))
+                {
+                    return Ok(new { Mensaje = "Estado Cambiado con éxito" });
+                }
+                else
+                {
+                    return NotFound("No se encontró una Butaca");
+                }
+            }
+            catch
+            {
+                return StatusCode(500, "Error");
+            }
         }
 
         //// DELETE api/<FacturaController>/5

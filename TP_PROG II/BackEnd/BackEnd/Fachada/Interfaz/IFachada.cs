@@ -17,7 +17,8 @@ namespace BackEnd.Fachada.Interfaz
         List<Peliculas> ObtenerPeliculasDisponibles();
         List<Salas> ObtenerSalas();
         List<Tipo_Entrada> ObtenerTipoEntradas();
-        List<Butacas> ObtenerButacas();
+        List<ButacasXFunciones> ObtenerButacas(List<Parametro> lstParametros);
+        bool ModEstadoButaca(int nroFunc, int idButaca);
         bool SaveFactura(Factura oFactura);
         //-----------------PELICULAS----------------------//
         bool CrearPelicula(Peliculas oPelicula);
