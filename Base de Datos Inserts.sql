@@ -481,10 +481,14 @@ go
 
 
 go
-select * from Peliculas
+select * from Detalle_Factura
 
 select * from Detalle_Factura
 select * from Facturas
 delete from Peliculas
 DBCC CHECKIDENT (Peliculas, RESEED, 4)
 go
+
+
+update Persona set nombre = (select nombre from Persona where id = 1)
+               where id = 2

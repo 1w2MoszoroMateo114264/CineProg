@@ -45,12 +45,12 @@ namespace FrontEnd1.Forms
                 var result = await ClienteSingleton.GetInstance().GetAsync(url);
                 var lst = JsonConvert.DeserializeObject<List<Funciones>>(result);
 
-                lstFunciones= lst;
+                lstFunciones = lst;
 
                 cboFunciones.DataSource = lst;
                 cboFunciones.ValueMember = "NroFuncion";
                 cboFunciones.DisplayMember = "ToString";
-                cboFunciones.SelectedIndex = -1;
+                //cboFunciones.SelectedIndex = -1;
                 cboFunciones.DropDownStyle = ComboBoxStyle.DropDownList;
             }
             else
@@ -155,6 +155,7 @@ namespace FrontEnd1.Forms
             {
                 HabilitarDeshabilitarChk();
             }
+            dataGridView.Rows.Clear();
         }
 
         private async void HabilitarDeshabilitarChk()
@@ -224,6 +225,11 @@ namespace FrontEnd1.Forms
             bool funcionEncontrada = false;
             bool tipoEntradaEncontrado = false;
 
+            // Validar el resto de la información
+            if (!Validar())
+            {
+                return;
+            }
             // Buscar la función seleccionada
             foreach (Funciones f in lstFunciones)
             {
@@ -236,6 +242,7 @@ namespace FrontEnd1.Forms
             }
 
             // Buscar el tipo de entrada seleccionado
+
             foreach (Tipo_Entrada t in lstTiposEntradas)
             {
                 if (t.IdEntrada == int.Parse(cboTipoEntrada.SelectedValue.ToString()))
@@ -244,12 +251,9 @@ namespace FrontEnd1.Forms
                     tipoEntradaEncontrado = true;
                     break; // Salir del bucle una vez encontrado el tipo de entrada
                 }
-                else
-                {
-                    MessageBox.Show("Debe Seleccionar un tipo de entrada!", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                }
             }
+
+
 
             // Validar que se haya encontrado la función y el tipo de entrada
             if (!funcionEncontrada)
@@ -272,10 +276,12 @@ namespace FrontEnd1.Forms
             for (int i = 1; i <= 9; i++)
             {
                 CheckBox checkBox = Controls.Find($"butaca{i}", true).FirstOrDefault() as CheckBox;
-                if (checkBox != null && checkBox.Checked)
+                if (checkBox != null && checkBox.Checked && checkBox.Enabled == true)
                 {
                     detalle.Butaca = i;
-                    break; // Salir del bucle una vez encontrada la butaca
+                    checkBox.Enabled = false;
+                    checkBox.BackColor = Color.Blue;
+                    break;
                 }
             }
 
@@ -286,11 +292,7 @@ namespace FrontEnd1.Forms
                 return;
             }
 
-            // Validar el resto de la información
-            if (!Validar())
-            {
-                return;
-            }
+
 
             // Verificar si la butaca ya está en el DataGridView
             foreach (DataGridViewRow row in dataGridView.Rows)
@@ -302,10 +304,7 @@ namespace FrontEnd1.Forms
                 }
             }
 
-            // Agregar el detalle a la factura
             nuevo.AgregarDetalle(detalle);
-
-            // Agregar una nueva fila al DataGridView
             dataGridView.Rows.Add(new object[] { detalle.Funcion, nroSala, detalle.Butaca, cboTipoEntrada.Text, precio, "Quitar" });
 
         }
