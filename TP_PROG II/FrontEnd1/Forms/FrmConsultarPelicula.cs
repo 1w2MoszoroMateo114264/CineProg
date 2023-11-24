@@ -113,39 +113,45 @@ namespace FrontEnd1.Forms
         private async void CargarPeliculasAsync(string titulo, string genero, string edad, string estado)
         {
             string url = string.Format("https://localhost:7246/Obtener%20Peliculas%20Filtradas?titulo=" + titulo + "&idGenero=" + genero + "&idEdad=" + edad + "&estado=" + estado);
-
-            var result = await ClienteSingleton.GetInstance().GetAsync(url);
-            var lst = JsonConvert.DeserializeObject<List<Peliculas>>(result);
-            dataGridView1.Rows.Clear();
-            if (lst != null)
+            try
             {
-                foreach (Peliculas pelicula in lst)
+                var result = await ClienteSingleton.GetInstance().GetAsync(url);
+                var lst = JsonConvert.DeserializeObject<List<Peliculas>>(result);
+                dataGridView1.Rows.Clear();
+                if (lst != null || lst.Count < 0)
                 {
-                    //dataGridView1.Rows.Add(new object[]
-                    //{
-                    //    pelicula.Titulo,
-                    //    pelicula.EstadoPelicula,
-                    //    pelicula.IdGenero,
-                    //    pelicula.IdEdad,
-                    //});
-                    // Busca el nombre del género y la clasificación en las ComboBox
-                    string nombreGenero = cboGenero.Items.Cast<Genero_Pelis>().FirstOrDefault(g => g.Id == pelicula.IdGenero)?.Genero;
-                    string nombreEdad = cboEdad.Items.Cast<Edades>().FirstOrDefault(e => e.ID == pelicula.IdEdad)?.Clasificacion;
-
-                    // Agrega la fila a la grilla
-                    dataGridView1.Rows.Add(new object[]
+                    foreach (Peliculas pelicula in lst)
                     {
+                        //dataGridView1.Rows.Add(new object[]
+                        //{
+                        //    pelicula.Titulo,
+                        //    pelicula.EstadoPelicula,
+                        //    pelicula.IdGenero,
+                        //    pelicula.IdEdad,
+                        //});
+                        // Busca el nombre del género y la clasificación en las ComboBox
+                        string nombreGenero = cboGenero.Items.Cast<Genero_Pelis>().FirstOrDefault(g => g.Id == pelicula.IdGenero)?.Genero;
+                        string nombreEdad = cboEdad.Items.Cast<Edades>().FirstOrDefault(e => e.ID == pelicula.IdEdad)?.Clasificacion;
+
+                        // Agrega la fila a la grilla
+                        dataGridView1.Rows.Add(new object[]
+                        {
                         pelicula.Titulo,
                         pelicula.EstadoPelicula,
                         nombreGenero,  // En lugar de pelicula.IdGenero
                         nombreEdad     // En lugar de pelicula.IdEdad
-                    });
-                }
+                        });
+                    }
 
+                }
+                else
+                {
+                    MessageBox.Show("Sin datos de peliculas para los filtros ingresados", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Sin datos de peliculas para los filtros ingresados", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sin Datos de peliculas para los Filtros ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
