@@ -28,6 +28,9 @@ namespace FrontEnd1.Forms
             nuevo = new Factura();
             lstFunciones = new List<Funciones>();
             lstTiposEntradas = new List<Tipo_Entrada>();
+            dataGridView.UserDeletedRow += dataGridView_UserDeletedRow;
+            dataGridView.RowsAdded += dataGridView_RowsAdded;
+            dataGridView.CellValueChanged += dataGridView_CellValueChanged;
         }
 
         private void FrmTransaccion_Load(object sender, EventArgs e)
@@ -355,12 +358,14 @@ namespace FrontEnd1.Forms
         private void CalcularyMostrarTotal()
         {
             double total = 0;
-            foreach (DataGridViewRow precio in dataGridView.Rows)
+            foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                total = total + Convert.ToDouble(precio.Cells["ColPrecio"].Value);
-
+                if (!row.IsNewRow && double.TryParse(row.Cells["ColPrecio"].Value.ToString(), out double monto))
+                {
+                    total += monto;
+                }
             }
-            lblMonto.Text = total.ToString();
+            lblMonto.Text = total.ToString("N2");
         }
 
         private async void btnAceptar_Click(object sender, EventArgs e)
@@ -374,8 +379,23 @@ namespace FrontEnd1.Forms
             nuevo.IdFormaPago = int.Parse(cboFormaPago.SelectedValue.ToString());
             nuevo.Fecha = DateTime.Parse(dtpFecha.Value.ToString("dd/MM/yyyy"));
             nuevo.DniCliente = int.Parse(txtDni.Text.ToString());
-            nuevo.Total = int.Parse(lblMonto.text);
+            nuevo.Total = int.Parse(lblMonto.Text);
             string bodyContent = JsonConvert.SerializeObject(nuevo);
+
+            string url = "https://localhost:7246/Insertar Factura";
+            var resultado = await ClienteSingleton.GetInstance().PostAsync(url, bodyContent);
+
+            if (!string.IsNullOrEmpty(resultado))
+            {
+                MessageBox.Show("Transacción registrado con Exito!", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //CargarPeliculasEnListBox();
+                //Habilitar(true);
+                //Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("ERROR. No se pudo Realizar la Transacción", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private bool ValidarFactura()
@@ -391,6 +411,21 @@ namespace FrontEnd1.Forms
                 return false;
             }
             return true;
+        }
+
+        private void dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            CalcularyMostrarTotal();
+        }
+
+        private void dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            CalcularyMostrarTotal();
+        }
+
+        private void dataGridView_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            CalcularyMostrarTotal();
         }
     }
 }
