@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\ReportesTpProg\ReportesTpProg\ReportesTpProg.csproj" />
     <ProjectReference Include="..\BackEnd\BackEnd\BackEnd.csproj" />
   </ItemGroup>
 

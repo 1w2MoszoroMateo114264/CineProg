@@ -489,9 +489,11 @@ go
 
 
 
-select * from Detalle_Factura
+select * from Butacas
 
-select * from Detalle_Factura
+update butacaXfunciones set disponible = 'Disponibles' where disponible = 'No Disponible'
+
+select * from Detalle_Factura order by 3
 select * from Facturas
 delete from Peliculas
 DBCC CHECKIDENT (Peliculas, RESEED, 4)

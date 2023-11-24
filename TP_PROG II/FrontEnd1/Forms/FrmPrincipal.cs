@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using FrontEnd1.Forms;
+using ReportesTpProg;
 
 
 
@@ -188,6 +189,7 @@ namespace FrontEnd1
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
+            AbrirFormulario<Form1>();
         }
     }
 }
