@@ -36,13 +36,12 @@ namespace FrontEnd1.Forms
             CargarFormaPagoAsync();
             CargarPeliculasAsync();
             CalcularyMostrarTotal();
-            Limpiar();
         }
 
 
         private async Task CargarFuncionesAsync()
         {
-            string NrPelicula = cboPelicula.SelectedValue?.ToString();
+            string NrPelicula = cboPelicula.SelectedValue.ToString();
 
             if (!string.IsNullOrEmpty(NrPelicula))
             {

@@ -12,7 +12,7 @@ namespace FrontEnd1
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new login());
-            Application.Run(new FrmPrincipal());
+            Application.Run(new login());
         }
     }
 }
