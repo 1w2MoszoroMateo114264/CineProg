@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using FrontEnd1.Forms;
 
+
+
 namespace FrontEnd1
 {
     public partial class FrmPrincipal : Form
@@ -128,11 +130,12 @@ namespace FrontEnd1
             panelsubmenuAcerca.Visible = false;
         }
 
-        private void btnAltaMascota_Click(object sender, EventArgs e)
+        private void btnPeliculas_Click(object sender, EventArgs e)
         {
             submenuSoporte.Visible = false;
             panelsubmenuAcerca.Visible = false;
-            
+            AbrirFormulario<FrmConsultarPelicula>();
+
         }
 
         private void btnDesarrollado_Click(object sender, EventArgs e)
@@ -181,6 +184,10 @@ namespace FrontEnd1
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -136,11 +136,11 @@ namespace WebApi.Controllers
 
         // PUT api/<FacturaController>/5
         [HttpPut("/Modificar Estado de Butaca")]
-        public IActionResult CambiarEstadoButacas(int nroFuncion, int idButaca)
+        public IActionResult CambiarEstadoButacas(List<ButacasXFunciones> listaButacas)
         {
             try
             {
-                if (app.ModEstadoButaca(nroFuncion, idButaca))
+                if (app.ModEstadoButaca(listaButacas))
                 {
                     return Ok(new { Mensaje = "Estado Cambiado con éxito" });
                 }

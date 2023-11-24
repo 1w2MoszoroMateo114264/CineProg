@@ -28,9 +28,6 @@ namespace FrontEnd1.Forms
             nuevo = new Factura();
             lstFunciones = new List<Funciones>();
             lstTiposEntradas = new List<Tipo_Entrada>();
-            dataGridView.UserDeletedRow += dataGridView_UserDeletedRow;
-            dataGridView.RowsAdded += dataGridView_RowsAdded;
-            dataGridView.CellValueChanged += dataGridView_CellValueChanged;
         }
 
         private void FrmTransaccion_Load(object sender, EventArgs e)
@@ -39,6 +36,7 @@ namespace FrontEnd1.Forms
             CargarFormaPagoAsync();
             CargarPeliculasAsync();
             CalcularyMostrarTotal();
+            Limpiar();
         }
 
 
@@ -125,21 +123,7 @@ namespace FrontEnd1.Forms
             DialogResult result = MessageBox.Show("¿Está seguro de querer cancelar?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                txtDni.Text = string.Empty;
-                cboPelicula.SelectedIndex = -1;
-                cboFunciones.SelectedIndex = -1;
-                cboTipoEntrada.SelectedIndex = -1;
-                cboFormaPago.SelectedIndex = -1;
-                dataGridView.Rows.Clear();
-                butaca1.Checked = false;
-                butaca2.Checked = false;
-                butaca3.Checked = false;
-                butaca4.Checked = false;
-                butaca5.Checked = false;
-                butaca6.Checked = false;
-                butaca7.Checked = false;
-                butaca8.Checked = false;
-                butaca9.Checked = false;
+                Limpiar();
             }
             else
             {
@@ -267,8 +251,9 @@ namespace FrontEnd1.Forms
 
             // Crear el detalle
             Detalle_factura detalle = new Detalle_factura();
-            detalle.Funcion = int.Parse(cboFunciones.SelectedValue.ToString());
-
+            Funciones fun = cboFunciones.SelectedItem as Funciones;
+            detalle.Funcion = fun.NroFuncion;
+            detalle.TipoEntrada = int.Parse(cboTipoEntrada.SelectedValue.ToString());
             // Encontrar la butaca marcada
             for (int i = 1; i <= 9; i++)
             {
@@ -348,12 +333,14 @@ namespace FrontEnd1.Forms
                         checkBox.BackColor = Color.Green;
                         break;
                     }
+
                 }
-                CalcularyMostrarTotal();
+
                 nuevo.QuitarDetalle(dataGridView.CurrentRow.Index);
                 dataGridView.Rows.Remove(dataGridView.CurrentRow);
                 //CalcularTotal();
             }
+            CalcularyMostrarTotal();
         }
         private void CalcularyMostrarTotal()
         {
@@ -370,16 +357,18 @@ namespace FrontEnd1.Forms
 
         private async void btnAceptar_Click(object sender, EventArgs e)
         {
+            Funciones oFuncion = cboFunciones.SelectedItem as Funciones;
+
             ValidarFactura();
             await GenerarFactura();
+            await ActualizarButacas(oFuncion);
         }
-
         private async Task GenerarFactura()
         {
             nuevo.IdFormaPago = int.Parse(cboFormaPago.SelectedValue.ToString());
             nuevo.Fecha = DateTime.Parse(dtpFecha.Value.ToString("dd/MM/yyyy"));
             nuevo.DniCliente = int.Parse(txtDni.Text.ToString());
-            nuevo.Total = int.Parse(lblMonto.Text);
+            nuevo.Total = double.Parse(lblMonto.Text);
             string bodyContent = JsonConvert.SerializeObject(nuevo);
 
             string url = "https://localhost:7246/Insertar Factura";
@@ -390,12 +379,312 @@ namespace FrontEnd1.Forms
                 MessageBox.Show("Transacción registrado con Exito!", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //CargarPeliculasEnListBox();
                 //Habilitar(true);
-                //Limpiar();
+                
             }
             else
             {
                 MessageBox.Show("ERROR. No se pudo Realizar la Transacción", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private async Task ActualizarButacas(Funciones oFuncion)
+        {
+            List<CheckBox> lista = new List<CheckBox>();
+            List<ButacasXFunciones> lstButacas = new List<ButacasXFunciones>();
+            lista = CargarListaButacas();
+            int indice = 1;
+
+            CheckBox checkBox = Controls.Find($"butaca{indice}", true).FirstOrDefault() as CheckBox;
+            for (int i = 0; i < lista.Count; i++)
+            {
+                if (lista[i].Checked==true && lista[i].BackColor == Color.Blue)
+                {
+
+                    switch (oFuncion.NroSala)
+                    {
+
+                        case 101:
+                            
+                            ButacasXFunciones but = new ButacasXFunciones();
+                            switch ($"butaca{indice}")
+                            {
+                                case $"butaca1":
+                                    but.IdButaca = 1;
+                                    break;
+                                case $"butaca2":
+                                    but.IdButaca = 2;
+                                    break;
+                                case $"butaca3":
+                                    but.IdButaca = 3;
+                                    break;
+                                case $"butaca4":
+                                    but.IdButaca = 4;
+                                    break;
+                                case $"butaca5":
+                                    but.IdButaca = 5;
+                                    break;
+                                case $"butaca6":
+                                    but.IdButaca = 6;
+                                    break;
+                                case $"butaca7":
+                                    but.IdButaca = 7;
+                                    break;
+                                case $"butaca8":
+                                    but.IdButaca = 8;
+                                    break;
+                                case $"butaca9":
+                                    but.IdButaca = 9;
+                                    break;
+
+                            }
+                            but.NroFunciones = oFuncion.NroFuncion;
+                            lstButacas.Add(but);
+                            break;
+                        case 102:
+                            CheckBox checkBox1 = Controls.Find($"butaca{indice}", true).FirstOrDefault() as CheckBox;
+                            ButacasXFunciones but1 = new ButacasXFunciones();
+                            switch ($"butaca{indice}")
+                            {
+                                case $"butaca1":
+                                    but1.IdButaca = 10;
+                                    break;
+                                case $"butaca2":
+                                    but1.IdButaca = 11;
+                                    break;
+                                case $"butaca3":
+                                    but1.IdButaca = 12;
+                                    break;
+                                case $"butaca4":
+                                    but1.IdButaca = 13;
+                                    break;
+                                case $"butaca5":
+                                    but1.IdButaca = 14;
+                                    break;
+                                case $"butaca6":
+                                    but1.IdButaca = 15;
+                                    break;
+                                case $"butaca7":
+                                    but1.IdButaca = 16;
+                                    break;
+                                case $"butaca8":
+                                    but1.IdButaca = 17;
+                                    break;
+                                case $"butaca9":
+                                    but1.IdButaca = 18;
+                                    break;
+                            }
+                            but1.NroFunciones = oFuncion.NroFuncion;
+                            lstButacas.Add(but1);
+
+
+                            break;
+                        case 103:
+
+                            CheckBox checkBox2 = Controls.Find($"butaca{indice}", true).FirstOrDefault() as CheckBox;
+
+                            ButacasXFunciones but2 = new ButacasXFunciones();
+                            switch ($"butaca{indice}")
+                            {
+                                case $"butaca1":
+                                    but2.IdButaca = 19;
+                                    break;
+                                case $"butaca2":
+                                    but2.IdButaca = 20;
+                                    break;
+                                case $"butaca3":
+                                    but2.IdButaca = 21;
+                                    break;
+                                case $"butaca4":
+                                    but2.IdButaca = 22;
+                                    break;
+                                case $"butaca5":
+                                    but2.IdButaca = 23;
+                                    break;
+                                case $"butaca6":
+                                    but2.IdButaca = 24;
+                                    break;
+                                case $"butaca7":
+                                    but2.IdButaca = 25;
+                                    break;
+                                case $"butaca8":
+                                    but2.IdButaca = 26;
+                                    break;
+                                case $"butaca9":
+                                    but2.IdButaca = 27;
+                                    break;
+                            }
+                            but2.NroFunciones = oFuncion.NroFuncion;
+                            lstButacas.Add(but2);
+
+
+                            break;
+                        case 201:
+
+                            CheckBox checkBox3 = Controls.Find($"butaca{indice}", true).FirstOrDefault() as CheckBox;
+
+                            ButacasXFunciones but3 = new ButacasXFunciones();
+                            switch ($"butaca{indice}")
+                            {
+                                case $"butaca1":
+                                    but3.IdButaca = 28;
+                                    break;
+                                case $"butaca2":
+                                    but3.IdButaca = 29;
+                                    break;
+                                case $"butaca3":
+                                    but3.IdButaca = 30;
+                                    break;
+                                case $"butaca4":
+                                    but3.IdButaca = 31;
+                                    break;
+                                case $"butaca5":
+                                    but3.IdButaca = 32;
+                                    break;
+                                case $"butaca6":
+                                    but3.IdButaca = 33;
+                                    break;
+                                case $"butaca7":
+                                    but3.IdButaca = 34;
+                                    break;
+                                case $"butaca8":
+                                    but3.IdButaca = 35;
+                                    break;
+                                case $"butaca9":
+                                    but3.IdButaca = 36;
+                                    break;
+                            }
+                            but3.NroFunciones = oFuncion.NroFuncion;
+                            lstButacas.Add(but3);
+
+
+                            break;
+                        case 202:
+
+                            CheckBox checkBox4 = Controls.Find($"butaca{indice}", true).FirstOrDefault() as CheckBox;
+
+                            ButacasXFunciones but4 = new ButacasXFunciones();
+                            switch ($"butaca{indice}")
+                            {
+                                case $"butaca1":
+                                    but4.IdButaca = 37;
+                                    break;
+                                case $"butaca2":
+                                    but4.IdButaca = 38;
+                                    break;
+                                case $"butaca3":
+                                    but4.IdButaca = 39;
+                                    break;
+                                case $"butaca4":
+                                    but4.IdButaca = 40;
+                                    break;
+                                case $"butaca5":
+                                    but4.IdButaca = 41;
+                                    break;
+                                case $"butaca6":
+                                    but4.IdButaca = 42;
+                                    break;
+                                case $"butaca7":
+                                    but4.IdButaca = 43;
+                                    break;
+                                case $"butaca8":
+                                    but4.IdButaca = 44;
+                                    break;
+                                case $"butaca9":
+                                    but4.IdButaca = 45;
+                                    break;
+                            }
+                            but4.NroFunciones = oFuncion.NroFuncion;
+                            lstButacas.Add(but4);
+
+
+                            break;
+                        case 203:
+
+                            CheckBox checkBox5 = Controls.Find($"butaca{indice}", true).FirstOrDefault() as CheckBox;
+
+                            ButacasXFunciones but5 = new ButacasXFunciones();
+                            switch ($"butaca{indice}")
+                            {
+                                case $"butaca1":
+                                    but5.IdButaca = 46;
+                                    break;
+                                case $"butaca2":
+                                    but5.IdButaca = 47;
+                                    break;
+                                case $"butaca3":
+                                    but5.IdButaca = 48;
+                                    break;
+                                case $"butaca4":
+                                    but5.IdButaca = 49;
+                                    break;
+                                case $"butaca5":
+                                    but5.IdButaca = 50;
+                                    break;
+                                case $"butaca6":
+                                    but5.IdButaca = 51;
+                                    break;
+                                case $"butaca7":
+                                    but5.IdButaca = 52;
+                                    break;
+                                case $"butaca8":
+                                    but5.IdButaca = 53;
+                                    break;
+                                case $"butaca9":
+                                    but5.IdButaca = 54;
+                                    break;
+                            }
+                            but5.NroFunciones = oFuncion.NroFuncion;
+                            lstButacas.Add(but5);
+
+
+                            break;
+                        default:
+                            break;
+                    }
+                    indice++;
+                }
+            }
+
+            string bodyContent = JsonConvert.SerializeObject(lstButacas);
+
+            string url = "https://localhost:7246/Modificar Estado de Butaca";
+            var resultado = await ClienteSingleton.GetInstance().PutAsync(url, bodyContent);
+
+            if (!string.IsNullOrEmpty(resultado))
+            {
+                MessageBox.Show("Butacas Actualizadas con Exito!", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("ERROR. No se pudo Actualizar las Butacas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Limpiar()
+        {
+            cboTipoEntrada.SelectedIndex = -1;
+            txtDni.Text = string.Empty;
+            cboFunciones.SelectedIndex = -1;
+            cboFormaPago.SelectedIndex = -1;
+            dataGridView.Rows.Clear();
+            butaca1.Checked = false;
+            butaca2.Checked = false;
+            butaca3.Checked = false;
+            butaca4.Checked = false;
+            butaca5.Checked = false;
+            butaca6.Checked = false;
+            butaca7.Checked = false;
+            butaca8.Checked = false;
+            butaca9.Checked = false;
+            butaca1.BackColor = Color.White;
+            butaca2.BackColor = Color.White;
+            butaca3.BackColor = Color.White;
+            butaca4.BackColor = Color.White;
+            butaca5.BackColor = Color.White;
+            butaca6.BackColor = Color.White;
+            butaca7.BackColor = Color.White;
+            butaca8.BackColor = Color.White;
+            butaca9.BackColor = Color.White;
+            lblMonto.Text = "0,00";
         }
 
         private bool ValidarFactura()
@@ -414,16 +703,6 @@ namespace FrontEnd1.Forms
         }
 
         private void dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            CalcularyMostrarTotal();
-        }
-
-        private void dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            CalcularyMostrarTotal();
-        }
-
-        private void dataGridView_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
         {
             CalcularyMostrarTotal();
         }

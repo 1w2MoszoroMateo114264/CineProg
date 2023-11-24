@@ -23,9 +23,9 @@ namespace BackEnd.Dominio
 			set { idButaca = value; }
 		}
 
-		private string estado;
+		private string? estado;
 
-		public string Estado
+		public string? Estado
 		{
 			get { return estado; }
 			set { estado = value; }
@@ -34,7 +34,7 @@ namespace BackEnd.Dominio
         {
             
         }
-        public ButacasXFunciones(int nroFuncion, int nroButaca, string estado)
+        public ButacasXFunciones(int nroFuncion, int nroButaca, string? estado)
         {
 			this.idButaca = nroButaca;
 			this.nroFunciones= nroFuncion;

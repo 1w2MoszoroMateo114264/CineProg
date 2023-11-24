@@ -486,9 +486,10 @@
             dataGridView.Size = new Size(635, 198);
             dataGridView.TabIndex = 16;
             dataGridView.CellContentClick += dataGridView_CellContentClick;
-            dataGridView.CellValueChanged += dataGridView_CellValueChanged;
+            //dataGridView.CellValueChanged += dataGridView_CellValueChanged;
             dataGridView.RowsAdded += dataGridView_RowsAdded;
-            dataGridView.UserDeletedRow += dataGridView_UserDeletedRow;
+            //dataGridView.UserDeletedRow += dataGridView_UserDeletedRow;
+            //dataGridView.UserDeletingRow += dataGridView_UserDeletingRow;
             // 
             // dataGridViewTextBoxColumn1
             // 

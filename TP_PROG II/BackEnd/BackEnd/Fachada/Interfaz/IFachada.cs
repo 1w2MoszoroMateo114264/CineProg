@@ -18,7 +18,7 @@ namespace BackEnd.Fachada.Interfaz
         List<Salas> ObtenerSalas();
         List<Tipo_Entrada> ObtenerTipoEntradas();
         List<ButacasXFunciones> ObtenerButacas(List<Parametro> lstParametros);
-        bool ModEstadoButaca(int nroFunc, int idButaca);
+        bool ModEstadoButaca(List<ButacasXFunciones> listaButacas);
         bool SaveFactura(Factura oFactura);
         //-----------------PELICULAS----------------------//
         bool CrearPelicula(Peliculas oPelicula);

@@ -59,9 +59,9 @@ namespace BackEnd.Fachada.Implementacion
         {
             return fDao.GetButacas(lstParametros);
         }
-        public bool ModEstadoButaca(int nroFunc, int idButaca)
+        public bool ModEstadoButaca(List<ButacasXFunciones> listaButacas)
         {
-            return fDao.ModEstadoButaca(nroFunc, idButaca);
+            return fDao.ModEstadoButaca(listaButacas);
         }
         public List<Peliculas> ObtenerPeliculasDisponibles()
         {

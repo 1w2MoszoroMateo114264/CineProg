@@ -30,451 +30,449 @@ namespace FrontEnd1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
-            this.barraTitulo = new System.Windows.Forms.Panel();
-            this.btnRestaurar = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.btnMaximizar = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.menuVertical = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.bntSalir = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnAcerca = new System.Windows.Forms.Button();
-            this.btnReportes = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnTransaccion = new System.Windows.Forms.Button();
-            this.btnSoporte = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panelContenedor = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelsubmenuAcerca = new System.Windows.Forms.Panel();
-            this.btnDesarrollado = new System.Windows.Forms.Button();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.submenuSoporte = new System.Windows.Forms.Panel();
-            this.btnConsulta = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.btnAMPeliculas = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnPeliculas = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.barraTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            this.menuVertical.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bntSalir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panelContenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelsubmenuAcerca.SuspendLayout();
-            this.submenuSoporte.SuspendLayout();
-            this.SuspendLayout();
+            barraTitulo = new Panel();
+            btnRestaurar = new PictureBox();
+            btnMinimizar = new PictureBox();
+            btnMaximizar = new PictureBox();
+            btnCerrar = new PictureBox();
+            menuVertical = new Panel();
+            panel6 = new Panel();
+            bntSalir = new PictureBox();
+            panel4 = new Panel();
+            panel3 = new Panel();
+            btnAcerca = new Button();
+            btnReportes = new Button();
+            panel2 = new Panel();
+            panel1 = new Panel();
+            btnTransaccion = new Button();
+            btnSoporte = new Button();
+            pictureBox2 = new PictureBox();
+            panelContenedor = new Panel();
+            pictureBox1 = new PictureBox();
+            panelsubmenuAcerca = new Panel();
+            btnDesarrollado = new Button();
+            panel15 = new Panel();
+            submenuSoporte = new Panel();
+            btnAMPeliculas = new Button();
+            panel5 = new Panel();
+            btnPeliculas = new Button();
+            panel8 = new Panel();
+            barraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnRestaurar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnMaximizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).BeginInit();
+            menuVertical.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)bntSalir).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panelContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panelsubmenuAcerca.SuspendLayout();
+            submenuSoporte.SuspendLayout();
+            SuspendLayout();
             // 
             // barraTitulo
             // 
-            this.barraTitulo.AllowDrop = true;
-            this.barraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.barraTitulo.Controls.Add(this.btnRestaurar);
-            this.barraTitulo.Controls.Add(this.btnMinimizar);
-            this.barraTitulo.Controls.Add(this.btnMaximizar);
-            this.barraTitulo.Controls.Add(this.btnCerrar);
-            this.barraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.barraTitulo.Name = "barraTitulo";
-            this.barraTitulo.Size = new System.Drawing.Size(1101, 30);
-            this.barraTitulo.TabIndex = 1;
-            this.barraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barraTitulo_MouseDown);
+            barraTitulo.AllowDrop = true;
+            barraTitulo.BackColor = Color.FromArgb(11, 7, 17);
+            barraTitulo.Controls.Add(btnRestaurar);
+            barraTitulo.Controls.Add(btnMinimizar);
+            barraTitulo.Controls.Add(btnMaximizar);
+            barraTitulo.Controls.Add(btnCerrar);
+            barraTitulo.Dock = DockStyle.Top;
+            barraTitulo.Location = new Point(0, 0);
+            barraTitulo.Margin = new Padding(4, 3, 4, 3);
+            barraTitulo.Name = "barraTitulo";
+            barraTitulo.Size = new Size(1284, 35);
+            barraTitulo.TabIndex = 1;
+            barraTitulo.MouseDown += barraTitulo_MouseDown;
             // 
             // btnRestaurar
             // 
-            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(1042, 3);
-            this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(21, 22);
-            this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnRestaurar.TabIndex = 3;
-            this.btnRestaurar.TabStop = false;
-            this.btnRestaurar.Visible = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            btnRestaurar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRestaurar.Cursor = Cursors.Hand;
+            btnRestaurar.Image = (Image)resources.GetObject("btnRestaurar.Image");
+            btnRestaurar.Location = new Point(1216, 3);
+            btnRestaurar.Margin = new Padding(4, 3, 4, 3);
+            btnRestaurar.Name = "btnRestaurar";
+            btnRestaurar.Size = new Size(24, 25);
+            btnRestaurar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnRestaurar.TabIndex = 3;
+            btnRestaurar.TabStop = false;
+            btnRestaurar.Visible = false;
+            btnRestaurar.Click += btnRestaurar_Click;
             // 
             // btnMinimizar
             // 
-            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(1016, 3);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(21, 22);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 2;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            btnMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMinimizar.Cursor = Cursors.Hand;
+            btnMinimizar.Image = (Image)resources.GetObject("btnMinimizar.Image");
+            btnMinimizar.Location = new Point(1185, 3);
+            btnMinimizar.Margin = new Padding(4, 3, 4, 3);
+            btnMinimizar.Name = "btnMinimizar";
+            btnMinimizar.Size = new Size(24, 25);
+            btnMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnMinimizar.TabIndex = 2;
+            btnMinimizar.TabStop = false;
+            btnMinimizar.Click += btnMinimizar_Click;
             // 
             // btnMaximizar
             // 
-            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(1042, 3);
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(21, 22);
-            this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMaximizar.TabIndex = 1;
-            this.btnMaximizar.TabStop = false;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            btnMaximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMaximizar.Cursor = Cursors.Hand;
+            btnMaximizar.Image = (Image)resources.GetObject("btnMaximizar.Image");
+            btnMaximizar.Location = new Point(1216, 3);
+            btnMaximizar.Margin = new Padding(4, 3, 4, 3);
+            btnMaximizar.Name = "btnMaximizar";
+            btnMaximizar.Size = new Size(24, 25);
+            btnMaximizar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnMaximizar.TabIndex = 1;
+            btnMaximizar.TabStop = false;
+            btnMaximizar.Click += btnMaximizar_Click;
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1069, 3);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(21, 22);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 0;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCerrar.Cursor = Cursors.Hand;
+            btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
+            btnCerrar.Location = new Point(1247, 3);
+            btnCerrar.Margin = new Padding(4, 3, 4, 3);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(24, 25);
+            btnCerrar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnCerrar.TabIndex = 0;
+            btnCerrar.TabStop = false;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // menuVertical
             // 
-            this.menuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.menuVertical.Controls.Add(this.panel6);
-            this.menuVertical.Controls.Add(this.bntSalir);
-            this.menuVertical.Controls.Add(this.panel4);
-            this.menuVertical.Controls.Add(this.panel3);
-            this.menuVertical.Controls.Add(this.btnAcerca);
-            this.menuVertical.Controls.Add(this.btnReportes);
-            this.menuVertical.Controls.Add(this.panel2);
-            this.menuVertical.Controls.Add(this.panel1);
-            this.menuVertical.Controls.Add(this.btnTransaccion);
-            this.menuVertical.Controls.Add(this.btnSoporte);
-            this.menuVertical.Controls.Add(this.pictureBox2);
-            this.menuVertical.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuVertical.Location = new System.Drawing.Point(0, 30);
-            this.menuVertical.Name = "menuVertical";
-            this.menuVertical.Size = new System.Drawing.Size(189, 500);
-            this.menuVertical.TabIndex = 0;
+            menuVertical.BackColor = Color.FromArgb(11, 7, 17);
+            menuVertical.Controls.Add(panel6);
+            menuVertical.Controls.Add(bntSalir);
+            menuVertical.Controls.Add(panel4);
+            menuVertical.Controls.Add(panel3);
+            menuVertical.Controls.Add(btnAcerca);
+            menuVertical.Controls.Add(btnReportes);
+            menuVertical.Controls.Add(panel2);
+            menuVertical.Controls.Add(panel1);
+            menuVertical.Controls.Add(btnTransaccion);
+            menuVertical.Controls.Add(btnSoporte);
+            menuVertical.Controls.Add(pictureBox2);
+            menuVertical.Dock = DockStyle.Left;
+            menuVertical.Location = new Point(0, 35);
+            menuVertical.Margin = new Padding(4, 3, 4, 3);
+            menuVertical.Name = "menuVertical";
+            menuVertical.Size = new Size(220, 577);
+            menuVertical.TabIndex = 0;
             // 
             // panel6
             // 
-            this.panel6.Location = new System.Drawing.Point(189, 105);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(171, 87);
-            this.panel6.TabIndex = 1;
+            panel6.Location = new Point(220, 121);
+            panel6.Margin = new Padding(4, 3, 4, 3);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(200, 100);
+            panel6.TabIndex = 1;
             // 
             // bntSalir
             // 
-            this.bntSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bntSalir.Image = global::FrontEnd1.Properties.Resources._95036__1_;
-            this.bntSalir.Location = new System.Drawing.Point(0, 454);
-            this.bntSalir.Name = "bntSalir";
-            this.bntSalir.Size = new System.Drawing.Size(80, 34);
-            this.bntSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bntSalir.TabIndex = 8;
-            this.bntSalir.TabStop = false;
-            this.bntSalir.Click += new System.EventHandler(this.bntSalir_Click_1);
+            bntSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            bntSalir.Image = Properties.Resources._95036__1_;
+            bntSalir.Location = new Point(0, 524);
+            bntSalir.Margin = new Padding(4, 3, 4, 3);
+            bntSalir.Name = "bntSalir";
+            bntSalir.Size = new Size(93, 39);
+            bntSalir.SizeMode = PictureBoxSizeMode.Zoom;
+            bntSalir.TabIndex = 8;
+            bntSalir.TabStop = false;
+            bntSalir.Click += bntSalir_Click_1;
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.panel4.Location = new System.Drawing.Point(1, 277);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(4, 28);
-            this.panel4.TabIndex = 2;
+            panel4.BackColor = Color.FromArgb(235, 5, 75);
+            panel4.Location = new Point(1, 320);
+            panel4.Margin = new Padding(4, 3, 4, 3);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(5, 32);
+            panel4.TabIndex = 2;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.panel3.Location = new System.Drawing.Point(1, 230);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(4, 28);
-            this.panel3.TabIndex = 4;
+            panel3.BackColor = Color.FromArgb(235, 5, 75);
+            panel3.Location = new Point(1, 265);
+            panel3.Margin = new Padding(4, 3, 4, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(5, 32);
+            panel3.TabIndex = 4;
             // 
             // btnAcerca
             // 
-            this.btnAcerca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnAcerca.FlatAppearance.BorderSize = 0;
-            this.btnAcerca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.btnAcerca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcerca.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.btnAcerca.ForeColor = System.Drawing.Color.White;
-            this.btnAcerca.Image = ((System.Drawing.Image)(resources.GetObject("btnAcerca.Image")));
-            this.btnAcerca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcerca.Location = new System.Drawing.Point(1, 277);
-            this.btnAcerca.Name = "btnAcerca";
-            this.btnAcerca.Size = new System.Drawing.Size(185, 28);
-            this.btnAcerca.TabIndex = 3;
-            this.btnAcerca.Text = "  Acerca de";
-            this.btnAcerca.UseVisualStyleBackColor = false;
-            this.btnAcerca.Click += new System.EventHandler(this.btnAcerca_Click);
+            btnAcerca.BackColor = Color.FromArgb(11, 7, 17);
+            btnAcerca.FlatAppearance.BorderSize = 0;
+            btnAcerca.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 5, 75);
+            btnAcerca.FlatStyle = FlatStyle.Flat;
+            btnAcerca.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAcerca.ForeColor = Color.White;
+            btnAcerca.Image = (Image)resources.GetObject("btnAcerca.Image");
+            btnAcerca.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAcerca.Location = new Point(1, 320);
+            btnAcerca.Margin = new Padding(4, 3, 4, 3);
+            btnAcerca.Name = "btnAcerca";
+            btnAcerca.Size = new Size(216, 32);
+            btnAcerca.TabIndex = 3;
+            btnAcerca.Text = "  Acerca de";
+            btnAcerca.UseVisualStyleBackColor = false;
+            btnAcerca.Click += btnAcerca_Click;
             // 
             // btnReportes
             // 
-            this.btnReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
-            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(1, 230);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(185, 28);
-            this.btnReportes.TabIndex = 2;
-            this.btnReportes.Text = "Reportes";
-            this.btnReportes.UseVisualStyleBackColor = false;
+            btnReportes.BackColor = Color.FromArgb(11, 7, 17);
+            btnReportes.FlatAppearance.BorderSize = 0;
+            btnReportes.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 5, 75);
+            btnReportes.FlatStyle = FlatStyle.Flat;
+            btnReportes.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnReportes.ForeColor = Color.White;
+            btnReportes.Image = (Image)resources.GetObject("btnReportes.Image");
+            btnReportes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnReportes.Location = new Point(1, 265);
+            btnReportes.Margin = new Padding(4, 3, 4, 3);
+            btnReportes.Name = "btnReportes";
+            btnReportes.Size = new Size(216, 32);
+            btnReportes.TabIndex = 2;
+            btnReportes.Text = "Reportes";
+            btnReportes.UseVisualStyleBackColor = false;
+            btnReportes.Click += btnReportes_Click;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.panel2.Location = new System.Drawing.Point(1, 184);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(4, 28);
-            this.panel2.TabIndex = 2;
+            panel2.BackColor = Color.FromArgb(235, 5, 75);
+            panel2.Location = new Point(1, 212);
+            panel2.Margin = new Padding(4, 3, 4, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(5, 32);
+            panel2.TabIndex = 2;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.panel1.Location = new System.Drawing.Point(1, 137);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(4, 28);
-            this.panel1.TabIndex = 0;
+            panel1.BackColor = Color.FromArgb(235, 5, 75);
+            panel1.Location = new Point(1, 158);
+            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(5, 32);
+            panel1.TabIndex = 0;
             // 
             // btnTransaccion
             // 
-            this.btnTransaccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnTransaccion.FlatAppearance.BorderSize = 0;
-            this.btnTransaccion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.btnTransaccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransaccion.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.btnTransaccion.ForeColor = System.Drawing.Color.White;
-            this.btnTransaccion.Image = ((System.Drawing.Image)(resources.GetObject("btnTransaccion.Image")));
-            this.btnTransaccion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransaccion.Location = new System.Drawing.Point(1, 184);
-            this.btnTransaccion.Name = "btnTransaccion";
-            this.btnTransaccion.Size = new System.Drawing.Size(185, 28);
-            this.btnTransaccion.TabIndex = 1;
-            this.btnTransaccion.Text = "Transacción";
-            this.btnTransaccion.UseVisualStyleBackColor = false;
-            this.btnTransaccion.Click += new System.EventHandler(this.btnTransaccion_Click);
+            btnTransaccion.BackColor = Color.FromArgb(11, 7, 17);
+            btnTransaccion.FlatAppearance.BorderSize = 0;
+            btnTransaccion.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 5, 75);
+            btnTransaccion.FlatStyle = FlatStyle.Flat;
+            btnTransaccion.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTransaccion.ForeColor = Color.White;
+            btnTransaccion.Image = (Image)resources.GetObject("btnTransaccion.Image");
+            btnTransaccion.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTransaccion.Location = new Point(1, 212);
+            btnTransaccion.Margin = new Padding(4, 3, 4, 3);
+            btnTransaccion.Name = "btnTransaccion";
+            btnTransaccion.Size = new Size(216, 32);
+            btnTransaccion.TabIndex = 1;
+            btnTransaccion.Text = "Transacción";
+            btnTransaccion.UseVisualStyleBackColor = false;
+            btnTransaccion.Click += btnTransaccion_Click;
             // 
             // btnSoporte
             // 
-            this.btnSoporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnSoporte.FlatAppearance.BorderSize = 0;
-            this.btnSoporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.btnSoporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSoporte.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.btnSoporte.ForeColor = System.Drawing.Color.White;
-            this.btnSoporte.Image = ((System.Drawing.Image)(resources.GetObject("btnSoporte.Image")));
-            this.btnSoporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSoporte.Location = new System.Drawing.Point(1, 137);
-            this.btnSoporte.Name = "btnSoporte";
-            this.btnSoporte.Size = new System.Drawing.Size(185, 28);
-            this.btnSoporte.TabIndex = 0;
-            this.btnSoporte.Text = "Soporte";
-            this.btnSoporte.UseVisualStyleBackColor = false;
-            this.btnSoporte.Click += new System.EventHandler(this.btnSoporte_Click);
+            btnSoporte.BackColor = Color.FromArgb(11, 7, 17);
+            btnSoporte.FlatAppearance.BorderSize = 0;
+            btnSoporte.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 5, 75);
+            btnSoporte.FlatStyle = FlatStyle.Flat;
+            btnSoporte.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSoporte.ForeColor = Color.White;
+            btnSoporte.Image = (Image)resources.GetObject("btnSoporte.Image");
+            btnSoporte.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSoporte.Location = new Point(1, 158);
+            btnSoporte.Margin = new Padding(4, 3, 4, 3);
+            btnSoporte.Name = "btnSoporte";
+            btnSoporte.Size = new Size(216, 32);
+            btnSoporte.TabIndex = 0;
+            btnSoporte.Text = "Soporte";
+            btnSoporte.UseVisualStyleBackColor = false;
+            btnSoporte.Click += btnSoporte_Click;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, -2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(186, 136);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(4, -2);
+            pictureBox2.Margin = new Padding(4, 3, 4, 3);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(217, 157);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 10;
+            pictureBox2.TabStop = false;
             // 
             // panelContenedor
             // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.panelContenedor.Controls.Add(this.pictureBox1);
-            this.panelContenedor.Controls.Add(this.panelsubmenuAcerca);
-            this.panelContenedor.Controls.Add(this.submenuSoporte);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(189, 30);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(912, 500);
-            this.panelContenedor.TabIndex = 3;
-            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint_2);
+            panelContenedor.BackColor = Color.FromArgb(32, 30, 45);
+            panelContenedor.Controls.Add(pictureBox1);
+            panelContenedor.Controls.Add(panelsubmenuAcerca);
+            panelContenedor.Controls.Add(submenuSoporte);
+            panelContenedor.Dock = DockStyle.Fill;
+            panelContenedor.Location = new Point(220, 35);
+            panelContenedor.Margin = new Padding(4, 3, 4, 3);
+            panelContenedor.Name = "panelContenedor";
+            panelContenedor.Size = new Size(1064, 577);
+            panelContenedor.TabIndex = 3;
+            panelContenedor.Paint += panelContenedor_Paint_2;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(327, 105);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(272, 283);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.ErrorImage = (Image)resources.GetObject("pictureBox1.ErrorImage");
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(382, 121);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(317, 327);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click_1;
             // 
             // panelsubmenuAcerca
             // 
-            this.panelsubmenuAcerca.Controls.Add(this.btnDesarrollado);
-            this.panelsubmenuAcerca.Controls.Add(this.panel15);
-            this.panelsubmenuAcerca.Location = new System.Drawing.Point(0, 275);
-            this.panelsubmenuAcerca.Name = "panelsubmenuAcerca";
-            this.panelsubmenuAcerca.Size = new System.Drawing.Size(171, 87);
-            this.panelsubmenuAcerca.TabIndex = 3;
-            this.panelsubmenuAcerca.Visible = false;
+            panelsubmenuAcerca.Controls.Add(btnDesarrollado);
+            panelsubmenuAcerca.Controls.Add(panel15);
+            panelsubmenuAcerca.Location = new Point(0, 317);
+            panelsubmenuAcerca.Margin = new Padding(4, 3, 4, 3);
+            panelsubmenuAcerca.Name = "panelsubmenuAcerca";
+            panelsubmenuAcerca.Size = new Size(200, 100);
+            panelsubmenuAcerca.TabIndex = 3;
+            panelsubmenuAcerca.Visible = false;
             // 
             // btnDesarrollado
             // 
-            this.btnDesarrollado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnDesarrollado.FlatAppearance.BorderSize = 0;
-            this.btnDesarrollado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.btnDesarrollado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDesarrollado.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.btnDesarrollado.ForeColor = System.Drawing.Color.White;
-            this.btnDesarrollado.Image = ((System.Drawing.Image)(resources.GetObject("btnDesarrollado.Image")));
-            this.btnDesarrollado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDesarrollado.Location = new System.Drawing.Point(9, 3);
-            this.btnDesarrollado.Name = "btnDesarrollado";
-            this.btnDesarrollado.Size = new System.Drawing.Size(160, 28);
-            this.btnDesarrollado.TabIndex = 0;
-            this.btnDesarrollado.Text = " Hecho por";
-            this.btnDesarrollado.UseVisualStyleBackColor = false;
-            this.btnDesarrollado.Click += new System.EventHandler(this.btnDesarrollado_Click);
+            btnDesarrollado.BackColor = Color.FromArgb(11, 7, 17);
+            btnDesarrollado.FlatAppearance.BorderSize = 0;
+            btnDesarrollado.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 5, 75);
+            btnDesarrollado.FlatStyle = FlatStyle.Flat;
+            btnDesarrollado.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDesarrollado.ForeColor = Color.White;
+            btnDesarrollado.Image = (Image)resources.GetObject("btnDesarrollado.Image");
+            btnDesarrollado.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDesarrollado.Location = new Point(10, 3);
+            btnDesarrollado.Margin = new Padding(4, 3, 4, 3);
+            btnDesarrollado.Name = "btnDesarrollado";
+            btnDesarrollado.Size = new Size(187, 32);
+            btnDesarrollado.TabIndex = 0;
+            btnDesarrollado.Text = " Hecho por";
+            btnDesarrollado.UseVisualStyleBackColor = false;
+            btnDesarrollado.Click += btnDesarrollado_Click;
             // 
             // panel15
             // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.panel15.Location = new System.Drawing.Point(3, 3);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(9, 28);
-            this.panel15.TabIndex = 4;
+            panel15.BackColor = Color.FromArgb(235, 5, 75);
+            panel15.Location = new Point(4, 3);
+            panel15.Margin = new Padding(4, 3, 4, 3);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(10, 32);
+            panel15.TabIndex = 4;
             // 
             // submenuSoporte
             // 
-            this.submenuSoporte.Controls.Add(this.btnConsulta);
-            this.submenuSoporte.Controls.Add(this.panel10);
-            this.submenuSoporte.Controls.Add(this.btnAMPeliculas);
-            this.submenuSoporte.Controls.Add(this.panel5);
-            this.submenuSoporte.Controls.Add(this.btnPeliculas);
-            this.submenuSoporte.Controls.Add(this.panel8);
-            this.submenuSoporte.Location = new System.Drawing.Point(3, 134);
-            this.submenuSoporte.Name = "submenuSoporte";
-            this.submenuSoporte.Size = new System.Drawing.Size(171, 136);
-            this.submenuSoporte.TabIndex = 1;
-            this.submenuSoporte.Visible = false;
-            // 
-            // btnConsulta
-            // 
-            this.btnConsulta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnConsulta.FlatAppearance.BorderSize = 0;
-            this.btnConsulta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.btnConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.btnConsulta.ForeColor = System.Drawing.Color.White;
-            this.btnConsulta.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta.Image")));
-            this.btnConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta.Location = new System.Drawing.Point(5, 68);
-            this.btnConsulta.Name = "btnConsulta";
-            this.btnConsulta.Size = new System.Drawing.Size(164, 28);
-            this.btnConsulta.TabIndex = 2;
-            this.btnConsulta.Text = "Consulta";
-            this.btnConsulta.UseVisualStyleBackColor = false;
-            this.btnConsulta.Click += new System.EventHandler(this.btnConsultaCliente_Click);
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.panel10.Location = new System.Drawing.Point(-1, 68);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(9, 28);
-            this.panel10.TabIndex = 9;
+            submenuSoporte.Controls.Add(btnAMPeliculas);
+            submenuSoporte.Controls.Add(panel5);
+            submenuSoporte.Controls.Add(btnPeliculas);
+            submenuSoporte.Controls.Add(panel8);
+            submenuSoporte.Location = new Point(4, 155);
+            submenuSoporte.Margin = new Padding(4, 3, 4, 3);
+            submenuSoporte.Name = "submenuSoporte";
+            submenuSoporte.Size = new Size(200, 157);
+            submenuSoporte.TabIndex = 1;
+            submenuSoporte.Visible = false;
             // 
             // btnAMPeliculas
             // 
-            this.btnAMPeliculas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnAMPeliculas.FlatAppearance.BorderSize = 0;
-            this.btnAMPeliculas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.btnAMPeliculas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAMPeliculas.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.btnAMPeliculas.ForeColor = System.Drawing.Color.White;
-            this.btnAMPeliculas.Image = ((System.Drawing.Image)(resources.GetObject("btnAMPeliculas.Image")));
-            this.btnAMPeliculas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAMPeliculas.Location = new System.Drawing.Point(5, 35);
-            this.btnAMPeliculas.Name = "btnAMPeliculas";
-            this.btnAMPeliculas.Size = new System.Drawing.Size(164, 28);
-            this.btnAMPeliculas.TabIndex = 1;
-            this.btnAMPeliculas.Text = "        AM Peliculas";
-            this.btnAMPeliculas.UseVisualStyleBackColor = false;
-            this.btnAMPeliculas.Click += new System.EventHandler(this.btnCliente_Click);
+            btnAMPeliculas.BackColor = Color.FromArgb(11, 7, 17);
+            btnAMPeliculas.FlatAppearance.BorderSize = 0;
+            btnAMPeliculas.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 5, 75);
+            btnAMPeliculas.FlatStyle = FlatStyle.Flat;
+            btnAMPeliculas.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAMPeliculas.ForeColor = Color.White;
+            btnAMPeliculas.Image = (Image)resources.GetObject("btnAMPeliculas.Image");
+            btnAMPeliculas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAMPeliculas.Location = new Point(6, 40);
+            btnAMPeliculas.Margin = new Padding(4, 3, 4, 3);
+            btnAMPeliculas.Name = "btnAMPeliculas";
+            btnAMPeliculas.Size = new Size(191, 32);
+            btnAMPeliculas.TabIndex = 1;
+            btnAMPeliculas.Text = "        AM Peliculas";
+            btnAMPeliculas.UseVisualStyleBackColor = false;
+            btnAMPeliculas.Click += btnCliente_Click;
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.panel5.Location = new System.Drawing.Point(0, 35);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(9, 28);
-            this.panel5.TabIndex = 9;
+            panel5.BackColor = Color.FromArgb(235, 5, 75);
+            panel5.Location = new Point(0, 40);
+            panel5.Margin = new Padding(4, 3, 4, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(10, 32);
+            panel5.TabIndex = 9;
             // 
             // btnPeliculas
             // 
-            this.btnPeliculas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnPeliculas.FlatAppearance.BorderSize = 0;
-            this.btnPeliculas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.btnPeliculas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPeliculas.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.btnPeliculas.ForeColor = System.Drawing.Color.White;
-            this.btnPeliculas.Image = ((System.Drawing.Image)(resources.GetObject("btnPeliculas.Image")));
-            this.btnPeliculas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPeliculas.Location = new System.Drawing.Point(5, 2);
-            this.btnPeliculas.Name = "btnPeliculas";
-            this.btnPeliculas.Size = new System.Drawing.Size(164, 28);
-            this.btnPeliculas.TabIndex = 0;
-            this.btnPeliculas.Text = "Peliculas";
-            this.btnPeliculas.UseVisualStyleBackColor = false;
-            this.btnPeliculas.Click += new System.EventHandler(this.btnAltaMascota_Click);
+            btnPeliculas.BackColor = Color.FromArgb(11, 7, 17);
+            btnPeliculas.FlatAppearance.BorderSize = 0;
+            btnPeliculas.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 5, 75);
+            btnPeliculas.FlatStyle = FlatStyle.Flat;
+            btnPeliculas.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPeliculas.ForeColor = Color.White;
+            btnPeliculas.Image = (Image)resources.GetObject("btnPeliculas.Image");
+            btnPeliculas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPeliculas.Location = new Point(6, 2);
+            btnPeliculas.Margin = new Padding(4, 3, 4, 3);
+            btnPeliculas.Name = "btnPeliculas";
+            btnPeliculas.Size = new Size(191, 32);
+            btnPeliculas.TabIndex = 0;
+            btnPeliculas.Text = "Peliculas";
+            btnPeliculas.UseVisualStyleBackColor = false;
+            btnPeliculas.Click += btnPeliculas_Click;
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(5)))), ((int)(((byte)(75)))));
-            this.panel8.Location = new System.Drawing.Point(0, 2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(9, 28);
-            this.panel8.TabIndex = 6;
+            panel8.BackColor = Color.FromArgb(235, 5, 75);
+            panel8.Location = new Point(0, 2);
+            panel8.Margin = new Padding(4, 3, 4, 3);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(10, 32);
+            panel8.TabIndex = 6;
             // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(47)))), ((int)(((byte)(66)))));
-            this.ClientSize = new System.Drawing.Size(1101, 530);
-            this.Controls.Add(this.panelContenedor);
-            this.Controls.Add(this.menuVertical);
-            this.Controls.Add(this.barraTitulo);
-            this.ForeColor = System.Drawing.Color.Black;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmPrincipal";
-            this.Text = "CINE TUP";
-            this.barraTitulo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            this.menuVertical.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bntSalir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panelContenedor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelsubmenuAcerca.ResumeLayout(false);
-            this.submenuSoporte.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(32, 47, 66);
+            ClientSize = new Size(1284, 612);
+            Controls.Add(panelContenedor);
+            Controls.Add(menuVertical);
+            Controls.Add(barraTitulo);
+            ForeColor = Color.Black;
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FrmPrincipal";
+            Text = "CINE TUP";
+            barraTitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnRestaurar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnMaximizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).EndInit();
+            menuVertical.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)bntSalir).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panelContenedor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panelsubmenuAcerca.ResumeLayout(false);
+            submenuSoporte.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
@@ -503,8 +501,6 @@ namespace FrontEnd1
         private System.Windows.Forms.Button btnDesarrollado;
         private System.Windows.Forms.Button btnAMPeliculas;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btnConsulta;
-        private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
     }

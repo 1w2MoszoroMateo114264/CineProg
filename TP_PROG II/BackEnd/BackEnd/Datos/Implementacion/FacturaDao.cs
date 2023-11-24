@@ -92,7 +92,7 @@ namespace BackEnd.Datos.Implementacion
             }
             return lButacas;
         }
-        public bool ModEstadoButaca(int nroFunc, int idButaca)
+        public bool ModEstadoButaca(List<ButacasXFunciones> listaButacas)
         {
             bool resultado = true;
             SqlConnection conexion = HelperDao.ObtenerInstancia().ObtenerConexion();
@@ -101,12 +101,16 @@ namespace BackEnd.Datos.Implementacion
             {
                 conexion.Open();
                 t = conexion.BeginTransaction();
-                SqlCommand comando = new SqlCommand("sp_ModEstadoButacas", conexion, t);
-                comando.CommandType = CommandType.StoredProcedure;
+                foreach (ButacasXFunciones butacas in listaButacas)
+                {
+                    SqlCommand comando = new SqlCommand("sp_ModEstadoButacas", conexion, t);
+                    comando.CommandType = CommandType.StoredProcedure;
 
-                comando.Parameters.AddWithValue("@nroFuncion", nroFunc);
-                comando.Parameters.AddWithValue("@idButaca", idButaca);
-                comando.ExecuteNonQuery();
+                    comando.Parameters.AddWithValue("@nroFuncion", butacas.NroFunciones);
+                    comando.Parameters.AddWithValue("@idButaca", butacas.IdButaca);
+                    comando.ExecuteNonQuery();
+                    
+                }
                 t.Commit();
             }
             catch
